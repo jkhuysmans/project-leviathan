@@ -1,6 +1,6 @@
-class CreateBinanceFuturesKlines < ActiveRecord::Migration[7.1]
+class CreateBinanceFuturesKline < ActiveRecord::Migration[7.1]
   def change
-    create_table :binance_futures_klines do |t|
+    create_table :binance_futures_kline do |t|
       t.text :symbol
       t.date :day
       t.text :interval
