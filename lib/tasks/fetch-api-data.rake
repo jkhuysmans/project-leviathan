@@ -10,12 +10,15 @@ namespace :api_data_fetcher do
     end  
 
     date = '2024-01-07'
+
     symbol = 'BTCUSDT'
+
     interval = '1h'
 
     uri = URI(fetch(symbol, date, interval))
 
     response = Net::HTTP.get_response(uri)
+    
     content = JSON.parse(response.body)
 
     BinanceFuturesKline.create(
