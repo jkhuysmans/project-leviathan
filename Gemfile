@@ -8,7 +8,7 @@ gem "binance-ruby"
 gem 'binance-connector-ruby'
 gem 'pg'
 
-# Use sqlite3 as the database for Active Record
+gem 'rest-client'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
