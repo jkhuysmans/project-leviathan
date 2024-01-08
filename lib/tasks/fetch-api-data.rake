@@ -1,12 +1,18 @@
 namespace :api_data_fetcher do
     desc "Retrieve data from Binance"
     task fetch_data: :environment do
-      require 'binance'
-      
-      client = Binance::Spot.new(key: 'b8w5P4AajVzVFZSDkxcb0prLNzs8j6aEBVlyJg5IHtdEy8cjPRuCwN9QSALBfItc', secret: 'pmdsAR11aL8TFuPcV4fHNxLLJDcA8m8Ku60zJNGlGoEcDAe1wabVGQW6YAhhLRsO')
 
-      btcusdt_kline = client.klines(symbol: 'BTCUSDT', interval: '1h', limit: '10')
-      p btcusdt_kline
+      def fetch(symbol, date, interval)
+        unix_starttime = (Time.parse(date + ' 00:00:00 GMT').to_i)
+        unix_endtime = (unix_starttime + 86399) * 1000 
+        unix_starttime *= 1000
+    
+        puts "https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{unix_starttime}&endtime=#{unix_endtime}&limit=1500"
+    end  
+      
+    puts fetch("BTCUSDT", "2024/01/06", "1h")
+    puts fetch("ETHUSDT", "2024/01/07", "1m")
+      
     end
   
   end
