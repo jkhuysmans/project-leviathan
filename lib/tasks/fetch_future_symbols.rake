@@ -2,16 +2,20 @@ namespace :fetch_future_symbols do
   desc "Fetches all Binance future symbols and returns them into an array"
   task binance_symbols: :environment do
 
-    url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
+    all_binance_klines = BinanceFuturesKline.where(id: [1330, 1331, 1332, 1333, 1334, 1335, 1336])
 
-    response = Net::HTTP.get(url)
-    data = JSON.parse(response)
+    all_binance_klines.each do |klines_from_binance|
+      content_data = klines_from_binance.content
 
-    array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
-    array_of_symbols = array_of_symbols.product(['2024-01-01'], ['1m'])
-
-    p array_of_symbols
-    p array_of_symbols.length
+      content_data.each do |interval_data|
+        Kline.create(
+          symbol: klines_from_binance.symbol,
+          day: klines_from_binance.day,
+          interval: klines_from_binance.interval,
+          content: interval_data
+        )
+      end
+    end
 
   end
 
