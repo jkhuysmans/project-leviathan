@@ -30,7 +30,25 @@ namespace :api_data_fetcher do
 
     end
 
-    
+    urls = get_future_symbols
+
+    urls.each do |url|
+      symbol, interval, unix_starttime = url.match(/symbol=(.*?)&interval=(.*?)&starttime=(\d*)&endtime=(\d*)&limit=1500/).captures
+      date = Time.at(unix_starttime.to_i / 1000).strftime('%Y/%m/%d')
+      uri = URI(url)
+
+      response = Net::HTTP.get_response(uri)
+
+      content = JSON.parse(response.body)
+
+      BinanceFuturesKline.create(
+        symbol: symbol,
+        day: date,
+        interval: interval,
+        content: content
+      )
+
+    end
 
     all_binance_klines = BinanceFuturesKline.where(symbol: "ETHUSDT")
 
