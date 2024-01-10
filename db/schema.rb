@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_001237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "binance_futures_klines", force: :cascade do |t|
+  create_table "binance_futures_kline", force: :cascade do |t|
     t.text "symbol"
     t.date "day"
     t.text "interval"
