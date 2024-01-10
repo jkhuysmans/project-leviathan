@@ -1,6 +1,7 @@
 class ApiDataController < ApplicationController
   def entries
     symbol = params[:symbol]
+    interval = params[:interval] ? params[:interval] : nil
     start_time = params[:start_time] ? params[:start_time].to_i : nil
     end_time = params[:end_time] ? params[:end_time].to_i : nil
 

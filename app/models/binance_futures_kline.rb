@@ -1,4 +1,0 @@
-class BinanceFuturesKline < ApplicationRecord
-    
-end
-  

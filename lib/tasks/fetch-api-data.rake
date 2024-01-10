@@ -12,59 +12,68 @@ namespace :api_data_fetcher do
 
     def get_future_symbols
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
-
       response = Net::HTTP.get(url)
       data = JSON.parse(response)
-
+    
       array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
       array_of_symbols = array_of_symbols.product(['2024/01/07'], ['1m'])
+    
+      array_of_symbols
+    end
+    
+    symbols_with_intervals = get_future_symbols
+    
+    combinations_queue = Queue.new
+    symbols_with_intervals.each { |combination| combinations_queue << combination }
+    
+    threads = []
+    8.times do
+      threads << Thread.new do
+        loop do
+          combination = combinations_queue.pop
+          break if combination.nil?
+    
+          symbol, date, interval = combination
+          url = fetch(symbol, date, interval) 
+    
+          uri = URI(url)
 
-      urls = []
+          response = Net::HTTP.get_response(uri)
 
-      array_of_symbols.each do |symbol, interval, date|
-        url = fetch(symbol, interval, date)
-        urls << url
+          content = JSON.parse(response.body)
+
+          BinanceFuturesKlines.create(
+            symbol: symbol,
+            day: date,
+            interval: interval,
+            content: content
+          )
+
+        end
       end
-
-      return urls
-
     end
+    
+    8.times { combinations_queue << nil }
+    threads.each(&:join)
 
-    urls = get_future_symbols
-
-    urls.each do |url|
-      symbol, interval, unix_starttime = url.match(/symbol=(.*?)&interval=(.*?)&starttime=(\d*)&endtime=(\d*)&limit=1500/).captures
-      date = Time.at(unix_starttime.to_i / 1000).strftime('%Y/%m/%d')
-      uri = URI(url)
-
-      response = Net::HTTP.get_response(uri)
-
-      content = JSON.parse(response.body)
-
-      BinanceFuturesKline.create(
-        symbol: symbol,
-        day: date,
-        interval: interval,
-        content: content
-      )
-
-    end
-
-    all_binance_klines = BinanceFuturesKline.where(symbol: "ETHUSDT")
+    all_binance_klines = BinanceFuturesKlines.all
+    kline_records = []
 
     all_binance_klines.each do |klines_from_binance|
       content_data = klines_from_binance.content
 
       content_data.each do |interval_data|
-        Kline.create(
+
+        kline_records << {
           symbol: klines_from_binance.symbol,
           day: klines_from_binance.day,
           interval: klines_from_binance.interval,
           content: interval_data
-        )
+        }
       end
     end
 
-
+    Kline.insert_all(kline_records)
+    
   end
 end

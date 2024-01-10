@@ -7,7 +7,6 @@ gem "rails", "~> 7.1.2"
 gem "binance-ruby"
 gem 'binance-connector-ruby'
 gem 'pg'
-
 gem 'rest-client'
 
 # Use the Puma web server [https://github.com/puma/puma]
