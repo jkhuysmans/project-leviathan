@@ -56,7 +56,7 @@ namespace :api_data_fetcher do
     8.times { combinations_queue << nil }
     threads.each(&:join)
 
-    all_binance_klines = BinanceFuturesKlines.all
+    all_binance_klines = BinanceFuturesKlines.where(symbol: "ETHUSDT")
     kline_records = []
 
     all_binance_klines.each do |klines_from_binance|
