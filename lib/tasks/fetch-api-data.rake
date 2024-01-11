@@ -11,7 +11,7 @@ namespace :api_data_fetcher do
     end
 
     def get_future_symbols
-      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h']
+      all_possible_intervals = ['1m']
 
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
@@ -32,7 +32,7 @@ namespace :api_data_fetcher do
     symbols_with_intervals.each { |combination| combinations_queue << combination }
     
     threads = []
-    6.times do
+    2.times do
       threads << Thread.new do
         loop do
           combination = combinations_queue.pop
@@ -64,7 +64,7 @@ namespace :api_data_fetcher do
     threads.each(&:join)
 
 
-    all_binance_klines = BinanceFuturesKlines.where(symbol: "ETHUSDT")
+    all_binance_klines = BinanceFuturesKlines.all
     kline_records = []
 
     all_binance_klines.each do |klines_from_binance|
