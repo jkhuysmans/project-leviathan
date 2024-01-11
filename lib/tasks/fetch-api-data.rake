@@ -11,23 +11,28 @@ namespace :api_data_fetcher do
     end
 
     def get_future_symbols
+      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h']
+
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
       data = JSON.parse(response)
-    
-      array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
-      array_of_symbols = array_of_symbols.product(['2024/01/07'], ['1m'])
-    
-      array_of_symbols
-    end
-    
+      all_symbols = []
+
+      all_possible_intervals.each do |interval|
+        array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
+        array_of_symbols = array_of_symbols.product(['2023/12/07'], [interval])
+        all_symbols.concat(array_of_symbols)
+      end
+      all_symbols
+    end 
+
     symbols_with_intervals = get_future_symbols
     
     combinations_queue = Queue.new
     symbols_with_intervals.each { |combination| combinations_queue << combination }
     
     threads = []
-    8.times do
+    6.times do
       threads << Thread.new do
         loop do
           combination = combinations_queue.pop
@@ -49,12 +54,15 @@ namespace :api_data_fetcher do
             content: content
           )
 
+          sleep(1)
         end
       end
+
     end
     
     8.times { combinations_queue << nil }
     threads.each(&:join)
+
 
     all_binance_klines = BinanceFuturesKlines.where(symbol: "ETHUSDT")
     kline_records = []
@@ -74,6 +82,7 @@ namespace :api_data_fetcher do
     end
 
     Kline.insert_all(kline_records)
+
     
   end
 end

@@ -1,41 +1,15 @@
 class ApiDataController < ApplicationController
-  def parse_interval(interval)
-    case interval
-    when '1m'
-      1
-    when '3m'
-      3
-    when '5m'
-      5
-    when '15m'
-      15
-    when '30m'
-      30
-    when '1h'
-      60
-    when '2h'
-      120
-    when '4h'
-      240
-    when '6h'
-      360
-    when '8h'
-      480
-    when '12h'
-      720
-    when '24h', '1d'
-      1440
-    else
-      nil
-    end
-  end
-
-  def check_interval(kline, interval)
-    timestamp_in_minutes = kline.content[0].to_i / 60000
-    timestamp_in_minutes % interval == 0
-  end
-
   def entries
+    def parse_interval(interval)
+      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M']
+      all_possible_intervals.include?(interval) ? interval : nil
+    end
+
+    def check_interval(kline, interval)
+      kline_interval = kline.interval
+      kline_interval == interval
+    end
+
     symbol = params[:symbol]
     interval = parse_interval(params[:interval])
     start_time = params[:start_time] ? params[:start_time].to_i : nil
