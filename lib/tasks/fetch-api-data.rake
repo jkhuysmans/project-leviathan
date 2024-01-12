@@ -4,27 +4,45 @@ namespace :api_data_fetcher do
 
     def fetch(symbol, date, interval)
       unix_starttime = (Time.parse(date + ' 00:00:00 GMT').to_i)
-      unix_endtime = (unix_starttime + 86399) * 1000
+      unix_endtime = (unix_starttime + 2591999) * 1000
       unix_starttime *= 1000
       
       "https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{unix_starttime}&endtime=#{unix_endtime}&limit=1500"
     end
 
     def get_future_symbols
-      all_possible_intervals = ['1m']
-
+      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M']
+    
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
       data = JSON.parse(response)
       all_symbols = []
-
+    
+      array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
+    
+      start_date = Date.parse('2023-12-07')
+      end_date = start_date.next_month.prev_day
+    
       all_possible_intervals.each do |interval|
-        array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
-        array_of_symbols = array_of_symbols.product(['2023/12/07'], [interval])
-        all_symbols.concat(array_of_symbols)
+        case interval
+        when '1m', '3m', '5m', '15m'
+          (start_date..end_date).each do |date|
+            formatted_date = date.strftime('%Y/%m/%d')
+            array_of_symbols.each do |symbol|
+              all_symbols << [symbol, formatted_date, interval]
+            end
+          end
+        else
+          formatted_start_date = start_date.strftime('%Y/%m/%d')
+          formatted_end_date = end_date.strftime('%Y/%m/%d')
+          array_of_symbols.each do |symbol|
+            all_symbols << [symbol, formatted_start_date, interval]
+          end
+        end
       end
       all_symbols
-    end 
+
+    end
 
     symbols_with_intervals = get_future_symbols
     
@@ -32,7 +50,7 @@ namespace :api_data_fetcher do
     symbols_with_intervals.each { |combination| combinations_queue << combination }
     
     threads = []
-    2.times do
+    6.times do
       threads << Thread.new do
         loop do
           combination = combinations_queue.pop
@@ -60,9 +78,8 @@ namespace :api_data_fetcher do
 
     end
     
-    8.times { combinations_queue << nil }
+    6.times { combinations_queue << nil }
     threads.each(&:join)
-
 
     all_binance_klines = BinanceFuturesKlines.all
     kline_records = []
@@ -83,6 +100,5 @@ namespace :api_data_fetcher do
 
     Kline.insert_all(kline_records)
 
-    
   end
 end
