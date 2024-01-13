@@ -10,7 +10,7 @@ namespace :api_data_fetcher do
     end
 
     def get_future_symbols
-      all_possible_intervals = ['1m']
+      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M']
     
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
@@ -54,13 +54,15 @@ namespace :api_data_fetcher do
       end
 
       all_symbols
-      filtered_arrays = all_symbols.select { |inner_array| inner_array.length > 2 && inner_array[0] == "EOSUSDT" }
+      filtered_arrays = all_symbols.select { |inner_array| 
+        inner_array.length > 2 && (inner_array[0] == "BTCUSDT" || inner_array[0] == "ETHUSDT" || inner_array[0] == "SOLUSDT")
+      }
       filtered_arrays
 
     end
 
     symbols_with_intervals = get_future_symbols
-    p symbols_with_intervals
+    p symbols_with_intervals.count
 
     combinations_queue = Queue.new
     symbols_with_intervals.each { |combination| combinations_queue << combination }
