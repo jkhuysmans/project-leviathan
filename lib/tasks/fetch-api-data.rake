@@ -170,7 +170,7 @@ namespace :api_data_fetcher do
 
           BinanceOpenInterests.create(
             symbol: symbol,
-            day: date,
+            day: start_time,
             interval: interval,
             content: content
           )
