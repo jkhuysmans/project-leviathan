@@ -2,12 +2,9 @@ namespace :api_data_fetcher do
   desc "Retrieve data from Binance"
   task fetch_data: :environment do
 
-    @no_more_data = false
-
-    def fetch(symbol, date, interval)
-      unix_starttime = (Time.parse(date + ' 00:00:00 GMT').to_i)
-      unix_endtime = (unix_starttime + 2591999) * 1000
-      unix_starttime *= 1000
+    def fetch(symbol, start_time, end_time, interval)
+      unix_starttime = (Time.parse(start_time + ' 00:00:00 GMT').to_i) * 1000
+      unix_endtime = ((Time.parse(end_time + ' 00:00:00 GMT').to_i) * 1000) - 1
       
       "https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{unix_starttime}&endtime=#{unix_endtime}&limit=1500"
     end
@@ -19,41 +16,49 @@ namespace :api_data_fetcher do
       response = Net::HTTP.get(url)
       data = JSON.parse(response)
       all_symbols = []
+      onboard = []
     
-      array_of_symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
+      symbols = data['symbols'].map { |symbol_data| symbol_data['symbol'] }
+      onboard = data['symbols'].map do |onboard_data|
+        timestamp = onboard_data['onboardDate']
+        one_date = Time.at(timestamp / 1000).to_date.strftime('%Y/%m/%d')
+        Date.parse(one_date)
+      end
+      array_of_symbols = symbols.zip(onboard)
+
+      array_of_symbols.each do |symbol, earliest_date|
+        start_date = Date.parse('2023-12-01')
     
-      start_date = Date.parse('2023-12-01')
-
-      while start_date >= Date.parse('2023-01-01')
-        end_date = start_date.next_month.prev_day
-
-        all_possible_intervals.each do |interval|
-          case interval
-          when '1m', '3m', '5m', '15m'
-            (start_date..end_date).each do |date|
-              formatted_date = date.strftime('%Y/%m/%d')
-              array_of_symbols.each do |symbol|
-                all_symbols << [symbol, formatted_date, interval]
+        while start_date >= earliest_date
+          end_date = start_date.next_month.prev_day
+    
+          all_possible_intervals.each do |interval|
+            case interval
+            when '1m', '3m', '5m', '15m'
+              (start_date..end_date).each do |date|
+                formatted_start = date.strftime('%Y/%m/%d')
+                next_day = date + 1
+                formatted_end = next_day.strftime('%Y/%m/%d')
+                all_symbols << [symbol, formatted_start, formatted_end, interval]
               end
-            end
-          else
-            formatted_start_date = start_date.strftime('%Y/%m/%d')
-            formatted_end_date = end_date.strftime('%Y/%m/%d')
-            array_of_symbols.each do |symbol|
-              all_symbols << [symbol, formatted_start_date, interval]
+            else
+              formatted_start = start_date.strftime('%Y/%m/%d')
+              next_month = start_date >> 1
+              formatted_end = next_month.strftime('%Y/%m/%d')
+              all_symbols << [symbol, formatted_start, formatted_end, interval]
             end
           end
-        end
     
-        start_date = start_date.prev_month
+          start_date = start_date.prev_month
+        end
       end
 
       all_symbols
+
     end
 
     symbols_with_intervals = get_future_symbols
-    p symbols_with_intervals
-    
+
     combinations_queue = Queue.new
     symbols_with_intervals.each { |combination| combinations_queue << combination }
     
@@ -64,16 +69,14 @@ namespace :api_data_fetcher do
           combination = combinations_queue.pop
           break if combination.nil?
     
-          symbol, date, interval = combination
-          url = fetch(symbol, date, interval) 
+          symbol, start_time, end_time, interval = combination
+          url = fetch(symbol, start_time, end_time, interval) 
     
           uri = URI(url)
 
           response = Net::HTTP.get_response(uri)
 
           content = JSON.parse(response.body)
-
-          @no_more_data = false if content.empty?
 
           BinanceFuturesKlines.create(
             symbol: symbol,
@@ -109,6 +112,6 @@ namespace :api_data_fetcher do
     end
 
     Kline.insert_all(kline_records)
-
+    
   end
 end

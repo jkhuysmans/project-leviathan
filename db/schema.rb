@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_001237) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_12_222004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "binance_futures_kline", force: :cascade do |t|
+  create_table "binance_futures_klines", force: :cascade do |t|
     t.text "symbol"
     t.date "day"
     t.text "interval"
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_001237) do
     t.jsonb "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "((content -> 0))", name: "kline_idx", using: :gin
   end
 
 end
