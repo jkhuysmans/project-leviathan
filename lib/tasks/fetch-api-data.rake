@@ -10,7 +10,7 @@ namespace :api_data_fetcher do
     end
 
     def get_future_symbols
-      all_possible_intervals = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d', '3d', '1w', '1M']
+      all_possible_intervals = ['1m']
     
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
@@ -27,8 +27,7 @@ namespace :api_data_fetcher do
       array_of_symbols = symbols.zip(onboard)
 
       array_of_symbols.each do |symbol, earliest_date|
-        start_date = Date.parse('2023-12-01')
-        start_date = Date.today
+        start_date = Date.today.prev_month
     
         while start_date >= earliest_date
           end_date = start_date.next_month.prev_day
@@ -55,10 +54,13 @@ namespace :api_data_fetcher do
       end
 
       all_symbols
+      filtered_arrays = all_symbols.select { |inner_array| inner_array.length > 2 && inner_array[0] == "EOSUSDT" }
+      filtered_arrays
 
     end
 
     symbols_with_intervals = get_future_symbols
+    p symbols_with_intervals
 
     combinations_queue = Queue.new
     symbols_with_intervals.each { |combination| combinations_queue << combination }
