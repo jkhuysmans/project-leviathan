@@ -28,6 +28,7 @@ namespace :api_data_fetcher do
 
       array_of_symbols.each do |symbol, earliest_date|
         start_date = Date.parse('2023-12-01')
+        start_date = Date.today
     
         while start_date >= earliest_date
           end_date = start_date.next_month.prev_day
@@ -114,7 +115,7 @@ namespace :api_data_fetcher do
     
   end
 
-  desc "Retrieve klines from Binance"
+  desc "Retrieve open interests from Binance"
   task fetch_open_interests: :environment do
 
         def fetch(symbol, start_time, end_time, interval)
