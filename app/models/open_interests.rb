@@ -1,0 +1,2 @@
+class OpenInterests < ApplicationRecord
+end

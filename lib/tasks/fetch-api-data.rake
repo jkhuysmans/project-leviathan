@@ -1,6 +1,6 @@
 namespace :api_data_fetcher do
-  desc "Retrieve data from Binance"
-  task fetch_data: :environment do
+  desc "Retrieve klines from Binance"
+  task fetch_klines: :environment do
 
     def fetch(symbol, start_time, end_time, interval)
       unix_starttime = (Time.parse(start_time + ' 00:00:00 GMT').to_i) * 1000
@@ -80,7 +80,7 @@ namespace :api_data_fetcher do
 
           BinanceFuturesKlines.create(
             symbol: symbol,
-            day: date,
+            day: start_time,
             interval: interval,
             content: content
           )
@@ -88,7 +88,6 @@ namespace :api_data_fetcher do
           sleep(1)
         end
       end
-
     end
     
     6.times { combinations_queue << nil }

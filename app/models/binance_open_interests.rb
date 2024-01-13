@@ -1,0 +1,2 @@
+class BinanceOpenInterests < ApplicationRecord
+end
