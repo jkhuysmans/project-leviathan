@@ -336,11 +336,15 @@ namespace :fetcher do
           interval: klines_from_binance.interval,
           content: interval_data
         }
+
       end
     end
 
+    puts kline_records.count
+
     kline_records.each_slice(100) do |records_slice|
       Kline.insert_all(records_slice)
+      puts "done"
     end
   end
 
