@@ -50,13 +50,18 @@ namespace :fetcher do
 
     workers.each(&:join)
 
-    entries = []
+    all_entries = []
 
-    entries << queue.pop until queue.empty?
+    all_entries << queue.pop until queue.empty?
 
-    entries = entries.map { |symbol, day, interval, content| { symbol: symbol, day: day, interval: interval, content: content } }
+    queue_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, day, interval, content|
+        { symbol: symbol, day: day, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
 
-    BinanceFuturesKlines.insert_all(entries)
   end
 
   task :scratch_3m, [:symbol] => :environment do |t, args|
@@ -183,7 +188,7 @@ namespace :fetcher do
 
     interval = '15m'
 
-    initial_date_time = DateTime.parse('2024-06-14').utc
+    initial_date_time = DateTime.parse('2020-06-14').utc
 
     def generate_url(symbol, interval, date_time)
       start_time = (date_time.beginning_of_day.to_i - 15.days.to_i) * 1e3.to_i
@@ -324,7 +329,16 @@ namespace :fetcher do
 
   desc "Sort out duplicates"
   task filter_data: :environment do
+
+
     all_binance_klines = BinanceFuturesKlines.all
+    before = all_binance_klines.count.to_i
+    all_binance_klines.find_each do |record|
+      duplicates = BinanceFuturesKlines.where(content: record.content).where.not(id: record.id)
+      duplicates.destroy_all
+    end
+    new_data = BinanceFuturesKlines.all.count.to_i
+    puts "Difference: #{before - new_data}"
 
   end
 
