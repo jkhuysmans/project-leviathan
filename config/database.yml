@@ -5,20 +5,20 @@ default: &default
 
 development:
   <<: *default
-  username: huysmans
-  password: 123456
-  host: localhost
-  database: app_development
+#  username: huysmans
+#  password: 123456
+#  host: localhost
+  database: leviathan_development
 
 test:
   <<: *default
-  username: huysmans
-  password: 123456
-  host: localhost
-  database: app_test
+#  username: huysmans
+#  password: 123456
+#  host: localhost
+  database: leviathan_test
 
 production:
   <<: *default
-  database: app_production
-  username: huysmans
-  password: 123456
+  database: leviathan_production
+#  username: huysmans
+#  password: 123456
