@@ -1,6 +1,6 @@
 namespace :api_data_fetcher do
   desc "Retrieve klines from Binance"
-  task fetch_klines: :environment do
+  task get_all_symbols: :environment do
 
     def fetch(symbol, start_time, end_time, interval)
       unix_starttime = (Time.parse(start_time + ' 00:00:00 GMT').to_i) * 1000
@@ -63,10 +63,6 @@ namespace :api_data_fetcher do
         end
   
         all_symbols
-        filtered_arrays = all_symbols.select { |inner_array| 
-        inner_array.length > 2 && (inner_array[0] == "BTCUSDT")
-      }
-      filtered_arrays
   
       end
 
@@ -102,9 +98,15 @@ namespace :api_data_fetcher do
         end
       end
     end
-    
-    6.times { combinations_queue << nil }
-    threads.each(&:join)
+
+  6.times { combinations_queue << nil }
+  threads.each(&:join)
+
+  end
+
+  desc "Sort klines in database"
+  task sort_klines: :environment do
+  
 
     all_binance_klines = BinanceFuturesKlines.all
     kline_records = []
