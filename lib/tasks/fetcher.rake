@@ -54,7 +54,7 @@ namespace :fetcher do
 
     all_entries << queue.pop until queue.empty?
 
-    queue_entries.each_slice(100) do |entries_slice|
+    all_entries.each_slice(100) do |entries_slice|
       entries = entries_slice.map do |symbol, day, interval, content|
         { symbol: symbol, day: day, interval: interval, content: content }
       end
