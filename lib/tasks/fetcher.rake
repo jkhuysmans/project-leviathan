@@ -113,13 +113,17 @@ namespace :fetcher do
 
     workers.each(&:join)
 
-    entries = []
+    all_entries = []
 
-    entries << queue.pop until queue.empty?
+    all_entries << queue.pop until queue.empty?
 
-    entries = entries.map { |symbol, day, interval, content| { symbol: symbol, day: day, interval: interval, content: content } }
-
-    BinanceFuturesKlines.insert_all(entries)
+    all_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, day, interval, content|
+        { symbol: symbol, day: day, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
 
   end
 
@@ -172,13 +176,17 @@ namespace :fetcher do
 
     workers.each(&:join)
 
-    entries = []
+    all_entries = []
 
-    entries << queue.pop until queue.empty?
+    all_entries << queue.pop until queue.empty?
 
-    entries = entries.map { |symbol, day, interval, content| { symbol: symbol, day: day, interval: interval, content: content } }
-
-    BinanceFuturesKlines.insert_all(entries)
+    all_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, day, interval, content|
+        { symbol: symbol, day: day, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
 
   end
 
@@ -231,13 +239,17 @@ namespace :fetcher do
 
     workers.each(&:join)
 
-    entries = []
+    all_entries = []
 
-    entries << queue.pop until queue.empty?
+    all_entries << queue.pop until queue.empty?
 
-    entries = entries.map { |symbol, day, interval, content| { symbol: symbol, day: day, interval: interval, content: content } }
-
-    BinanceFuturesKlines.insert_all(entries)
+    all_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, day, interval, content|
+        { symbol: symbol, day: day, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
 
   end
 
@@ -292,13 +304,17 @@ namespace :fetcher do
 
     workers.each(&:join)
 
-    entries = []
+    all_entries = []
 
-    entries << queue.pop until queue.empty?
+    all_entries << queue.pop until queue.empty?
 
-    entries = entries.map { |symbol, day, interval, content| { symbol: symbol, day: day, interval: interval, content: content } }
-
-    BinanceFuturesKlines.insert_all(entries)
+    all_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, day, interval, content|
+        { symbol: symbol, day: day, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
 
   end
 
@@ -330,15 +346,18 @@ namespace :fetcher do
   desc "Sort out duplicates"
   task filter_data: :environment do
 
+    puts BinanceFuturesKlines.count.to_i
 
-    all_binance_klines = BinanceFuturesKlines.all
-    before = all_binance_klines.count.to_i
-    all_binance_klines.find_each do |record|
-      duplicates = BinanceFuturesKlines.where(content: record.content).where.not(id: record.id)
-      duplicates.destroy_all
-    end
-    new_data = BinanceFuturesKlines.all.count.to_i
-    puts "Difference: #{before - new_data}"
+    ids_to_keep = BinanceFuturesKlines
+                  .select('MIN(id) as min_id')
+                  .group(:content)
+                  .having('COUNT(*) > 1')
+                  .pluck('min_id')
+
+  # Delete all records that are duplicates and not in the list of IDs to keep
+  BinanceFuturesKlines.where.not(id: ids_to_keep).delete_all
+
+  puts BinanceFuturesKlines.count.to_i
 
   end
 
