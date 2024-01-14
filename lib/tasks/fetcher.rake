@@ -339,8 +339,9 @@ namespace :fetcher do
       end
     end
 
-    Kline.insert_all(kline_records)
-
+    kline_records.each_slice(100) do |records_slice|
+      Kline.insert_all(records_slice)
+    end
   end
 
   desc "Sort out duplicates"
