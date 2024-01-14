@@ -18,7 +18,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 10
+    worker_count = 7
 
     queue = Queue.new
 
@@ -76,7 +76,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 10
+    worker_count = 7
 
     queue = Queue.new
 
@@ -135,7 +135,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 10
+    worker_count = 7
 
     queue = Queue.new
 
@@ -194,7 +194,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 10
+    worker_count = 7
 
     queue = Queue.new
 
@@ -253,7 +253,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 10
+    worker_count = 7
 
     queue = Queue.new
 
@@ -319,6 +319,12 @@ namespace :fetcher do
     end
 
     Kline.insert_all(kline_records)
+
+  end
+
+  desc "Sort out duplicates"
+  task filter_data: :environment do
+    all_binance_klines = BinanceFuturesKlines.all
 
   end
 
