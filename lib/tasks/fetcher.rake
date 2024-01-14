@@ -236,8 +236,9 @@ namespace :fetcher do
 
   end
 
-  task scratch_monthly: :environment do
-    symbol = 'BTCUSDT'
+  task :scratch_monthly, [:symbol] => :environment do |t, args|
+    
+    symbol = args[:symbol]
 
     intervals = ["30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
@@ -320,4 +321,6 @@ namespace :fetcher do
     Kline.insert_all(kline_records)
 
   end
+
+
 end
