@@ -346,20 +346,23 @@ namespace :fetcher do
   desc "Sort out duplicates"
   task filter_data: :environment do
 
-    puts BinanceFuturesKlines.count.to_i
+    before = BinanceFuturesKlines.count.to_i
 
-    ids_to_keep = BinanceFuturesKlines
-                  .select('MIN(id) as min_id')
-                  .group(:content)
-                  .having('COUNT(*) > 1')
-                  .pluck('min_id')
+    all_data = BinanceFuturesKlines.all
 
-  # Delete all records that are duplicates and not in the list of IDs to keep
-  BinanceFuturesKlines.where.not(id: ids_to_keep).delete_all
+    content_tracker = {}
 
-  puts BinanceFuturesKlines.count.to_i
+    all_data.each do |record|
+      if content_tracker.key?(record.content)
+        record.destroy
+      else
+        content_tracker[record.content] = true
+      end
+    end
+    
+    after = BinanceFuturesKlines.count.to_i
+
+    puts before - after 
 
   end
-
-
 end

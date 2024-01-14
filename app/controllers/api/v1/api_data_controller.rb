@@ -29,6 +29,7 @@ class ApiDataController < ApplicationController
     end_time = params[:end_time] ? params[:end_time].to_i : (start_time + 86400000)
 
     entries = symbol ? Kline.where(symbol: symbol) : Kline.all
+    entries = entries.limit(1500)
 
     if start_time && end_time
       entries = entries.select do |kline|
