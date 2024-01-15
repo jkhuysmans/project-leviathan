@@ -121,7 +121,7 @@ namespace :fetcher do
     all_entries << queue.pop until queue.empty?
 
     all_entries.each_slice(100) do |entries_slice|
-      entries = entries_slice.map do |symbol, day, interval, content|
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
         { symbol: symbol, day: day, interval: interval, content: content }
       end
     
@@ -260,7 +260,7 @@ namespace :fetcher do
 
   end
 
-  task :scratch_monthly, [:symbol] => :environment do |t, args|
+  task :scratch_monthly, [:symbol, :month] => :environment do |t, args|
 
     puts "start"
     
@@ -268,7 +268,6 @@ namespace :fetcher do
 
     intervals = ["30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    current_month_start = DateTime.now.utc.beginning_of_month
     initial_date_time = DateTime.now.utc
 
     def generate_url(symbol, interval, date_time)
@@ -306,8 +305,6 @@ namespace :fetcher do
             queue.push [symbol, start_time, end_time, interval, content]
     
           start_time = start_time - worker_count.months
-
-          break if start_time < current_month_start
     
           sleep(1)
           end
