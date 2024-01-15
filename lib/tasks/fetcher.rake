@@ -25,10 +25,10 @@ namespace :fetcher do
     worker_count.times do |i|
       workers << Thread.new do
         start_time = initial_date_time - i.days
-        end_time = start_time + 1.days 
 
         loop do
           url = generate_url(symbol, interval, start_time)
+          end_time = start_time + 1.days 
 
           response = Net::HTTP.get(url)
 
@@ -40,7 +40,7 @@ namespace :fetcher do
 
           puts "Worker #{i}: #{start_time} #{url}:#{content}"
 
-          queue.push [symbol, start_time.to_date, interval, content]
+          queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
 
           start_time = start_time - worker_count.day
 
@@ -89,10 +89,11 @@ namespace :fetcher do
 
     worker_count.times do |i|
       workers << Thread.new do
-        date_time = initial_date_time - i.days
+        start_time = initial_date_time - i.days
 
         loop do
-          url = generate_url(symbol, interval, date_time)
+          url = generate_url(symbol, interval, start_time)
+          end_time = start_time + 1.days 
 
           response = Net::HTTP.get(url)
 
@@ -102,11 +103,11 @@ namespace :fetcher do
             break
           end
 
-          puts "Worker #{i}: #{date_time} #{url}:#{content}"
+          puts "Worker #{i}: #{start_time} #{url}:#{content}"
 
-          queue.push [symbol, date_time.to_date, interval, content]
+          queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
 
-          date_time = date_time - worker_count.day
+          start_time = start_time - worker_count.day
 
           sleep(1)
         end
@@ -135,7 +136,7 @@ namespace :fetcher do
 
     interval = '5m'
 
-    initial_date_time = DateTime.parse('2020-01-14').utc
+    initial_date_time = DateTime.now.utc
 
     def generate_url(symbol, interval, date_time)
       start_time = date_time.beginning_of_day.to_i * 1e3.to_i
@@ -200,7 +201,7 @@ namespace :fetcher do
 
     interval = '15m'
 
-    initial_date_time = DateTime.parse('2020-01-14').utc
+    initial_date_time = DateTime.now.utc
 
     def generate_url(symbol, interval, date_time)
       start_time = date_time.beginning_of_day.to_i * 1e3.to_i
@@ -267,7 +268,7 @@ namespace :fetcher do
 
     intervals = ["30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    initial_date_time = DateTime.parse('2023-08-14').utc
+    initial_date_time = DateTime.now.utc
 
     def generate_url(symbol, interval, date_time)
       start_time = (date_time.beginning_of_month).to_i * 1e3.to_i
