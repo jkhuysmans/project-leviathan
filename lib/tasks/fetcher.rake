@@ -24,6 +24,71 @@ namespace :fetcher do
 
     worker_count.times do |i|
       workers << Thread.new do
+        start_time = initial_date_time - i.days
+        end_time = start_time + 1.days 
+
+        loop do
+          url = generate_url(symbol, interval, start_time)
+
+          response = Net::HTTP.get(url)
+
+          content = JSON.parse(response)
+
+          if content.empty?
+            break
+          end
+
+          puts "Worker #{i}: #{start_time} #{url}:#{content}"
+
+          queue.push [symbol, start_time.to_date, interval, content]
+
+          start_time = start_time - worker_count.day
+
+          sleep(1)
+        end
+      end
+    end
+
+    workers.each(&:join)
+
+    all_entries = []
+
+    all_entries << queue.pop until queue.empty?
+
+    all_entries.each_slice(100) do |entries_slice|
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
+      end
+    
+      BinanceFuturesKlines.insert_all(entries)
+    end
+
+  end
+
+  task :scratch_3m, [:symbol] => :environment do |t, args|
+    
+    symbol = args[:symbol]
+
+    interval = '3m'
+
+    initial_date_time = DateTime.now.utc
+
+    def generate_url(symbol, interval, date_time)
+      start_time = date_time.beginning_of_day.to_i * 1e3.to_i
+
+      end_time = date_time.end_of_day.to_i * 1e3.to_i
+
+      URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
+    end
+
+    workers = []
+
+    worker_count = 6
+
+    queue = Queue.new
+
+    worker_count.times do |i|
+      workers << Thread.new do
         date_time = initial_date_time - i.days
 
         loop do
@@ -64,79 +129,17 @@ namespace :fetcher do
 
   end
 
-  task :scratch_3m, [:symbol] => :environment do |t, args|
-    
-    symbol = args[:symbol]
-
-    interval = '3m'
-
-    initial_date_time = DateTime.parse('2024-01-14').utc
-
-    def generate_url(symbol, interval, date_time)
-      start_time = (date_time.beginning_of_day.to_i - 3.days.to_i) * 1e3.to_i
-      end_time = date_time.end_of_day.to_i * 1e3.to_i
-
-      URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
-    end
-
-    workers = []
-
-    worker_count = 7
-
-    queue = Queue.new
-
-    worker_count.times do |i|
-      workers << Thread.new do
-        date_time = initial_date_time - (i * 3).days
-
-        loop do
-          url = generate_url(symbol, interval, date_time)
-
-          response = Net::HTTP.get(url)
-
-          content = JSON.parse(response)
-
-          if content.empty?
-            break
-          end
-
-          puts "Worker #{i}: #{date_time} #{url}:#{content}"
-
-          queue.push [symbol, date_time.to_date, interval, content]
-
-          date_time = date_time - (3 * worker_count).days
-
-          sleep(1)
-        end
-      end
-    end
-
-    workers.each(&:join)
-
-    all_entries = []
-
-    all_entries << queue.pop until queue.empty?
-
-    all_entries.each_slice(100) do |entries_slice|
-      entries = entries_slice.map do |symbol, day, interval, content|
-        { symbol: symbol, day: day, interval: interval, content: content }
-      end
-    
-      BinanceFuturesKlines.insert_all(entries)
-    end
-
-  end
-
   task :scratch_5m, [:symbol] => :environment do |t, args|
 
     symbol = args[:symbol]
 
     interval = '5m'
 
-    initial_date_time = DateTime.parse('2024-01-14').utc
+    initial_date_time = DateTime.parse('2020-01-14').utc
 
     def generate_url(symbol, interval, date_time)
-      start_time = (date_time.beginning_of_day.to_i - 5.days.to_i) * 1e3.to_i
+      start_time = date_time.beginning_of_day.to_i * 1e3.to_i
+
       end_time = date_time.end_of_day.to_i * 1e3.to_i
 
       URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
@@ -144,16 +147,17 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 7
+    worker_count = 6
 
     queue = Queue.new
 
     worker_count.times do |i|
       workers << Thread.new do
-        date_time = initial_date_time - (i * 5).days
+        start_time = initial_date_time - i.days
 
         loop do
-          url = generate_url(symbol, interval, date_time)
+          url = generate_url(symbol, interval, start_time)
+          end_time = start_time + 1.days 
 
           response = Net::HTTP.get(url)
 
@@ -163,11 +167,11 @@ namespace :fetcher do
             break
           end
 
-          puts "Worker #{i}: #{date_time} #{url}:#{content}"
+          puts "Worker #{i}: #{start_time} #{url}:#{content}"
 
-          queue.push [symbol, date_time.to_date, interval, content]
+          queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
 
-          date_time = date_time - (5 * worker_count).days
+          start_time = start_time - worker_count.day
 
           sleep(1)
         end
@@ -181,8 +185,8 @@ namespace :fetcher do
     all_entries << queue.pop until queue.empty?
 
     all_entries.each_slice(100) do |entries_slice|
-      entries = entries_slice.map do |symbol, day, interval, content|
-        { symbol: symbol, day: day, interval: interval, content: content }
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
       BinanceFuturesKlines.insert_all(entries)
@@ -196,10 +200,11 @@ namespace :fetcher do
 
     interval = '15m'
 
-    initial_date_time = DateTime.parse('2020-06-14').utc
+    initial_date_time = DateTime.parse('2020-01-14').utc
 
     def generate_url(symbol, interval, date_time)
-      start_time = (date_time.beginning_of_day.to_i - 15.days.to_i) * 1e3.to_i
+      start_time = date_time.beginning_of_day.to_i * 1e3.to_i
+
       end_time = date_time.end_of_day.to_i * 1e3.to_i
 
       URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
@@ -207,16 +212,17 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 7
+    worker_count = 6
 
     queue = Queue.new
 
     worker_count.times do |i|
       workers << Thread.new do
-        date_time = initial_date_time - (i * 15).days
+        start_time = initial_date_time - i.days
 
         loop do
-          url = generate_url(symbol, interval, date_time)
+          url = generate_url(symbol, interval, start_time)
+          end_time = start_time + 1.days 
 
           response = Net::HTTP.get(url)
 
@@ -226,11 +232,11 @@ namespace :fetcher do
             break
           end
 
-          puts "Worker #{i}: #{date_time} #{url}:#{content}"
+          puts "Worker #{i}: #{start_time} #{url}:#{content}"
 
-          queue.push [symbol, date_time.to_date, interval, content]
+          queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
 
-          date_time = date_time - (15 * worker_count).days
+          start_time = start_time - worker_count.day
 
           sleep(1)
         end
@@ -244,8 +250,8 @@ namespace :fetcher do
     all_entries << queue.pop until queue.empty?
 
     all_entries.each_slice(100) do |entries_slice|
-      entries = entries_slice.map do |symbol, day, interval, content|
-        { symbol: symbol, day: day, interval: interval, content: content }
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
       BinanceFuturesKlines.insert_all(entries)
@@ -254,33 +260,36 @@ namespace :fetcher do
   end
 
   task :scratch_monthly, [:symbol] => :environment do |t, args|
+
+    puts "start"
     
     symbol = args[:symbol]
 
     intervals = ["30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    initial_date_time = DateTime.parse('2024-01-14').utc
+    initial_date_time = DateTime.parse('2023-08-14').utc
 
     def generate_url(symbol, interval, date_time)
-      start_time = (date_time.beginning_of_day.to_i - 1.month.to_i) * 1e3.to_i
-      end_time = date_time.end_of_day.to_i * 1e3.to_i
+      start_time = (date_time.beginning_of_month).to_i * 1e3.to_i
+      end_time = date_time.end_of_month.to_i * 1e3.to_i
 
       URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
     end
 
     workers = []
 
-    worker_count = 7
+    worker_count = 6
 
     queue = Queue.new
 
     worker_count.times do |i|
       workers << Thread.new do
       intervals.each do |interval| 
-        date_time = initial_date_time - i.months
+        start_time = initial_date_time.beginning_of_month - i.months
     
         loop do
-            url = generate_url(symbol, interval, date_time)
+            end_time = (start_time + 1.months) - 1
+            url = generate_url(symbol, interval, start_time)
     
             response = Net::HTTP.get(url)
     
@@ -290,11 +299,11 @@ namespace :fetcher do
               break
             end
     
-            puts "Worker #{i}: #{date_time} #{interval} #{url}:#{content}"
+            puts "Worker #{i}: #{start_time} #{interval} #{url}:#{content}"
     
-            queue.push [symbol, date_time.to_date, interval, content]
+            queue.push [symbol, start_time, end_time, interval, content]
     
-          date_time = date_time - worker_count.months
+          start_time = start_time - worker_count.months
     
           sleep(1)
           end
@@ -309,11 +318,11 @@ namespace :fetcher do
     all_entries << queue.pop until queue.empty?
 
     all_entries.each_slice(100) do |entries_slice|
-      entries = entries_slice.map do |symbol, day, interval, content|
-        { symbol: symbol, day: day, interval: interval, content: content }
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
@@ -334,28 +343,5 @@ namespace :fetcher do
     SQL
 
     ActiveRecord::Base.connection.execute(sql)
-  end
-
-  desc "Sort out duplicates"
-  task filter_data: :environment do
-
-    before = BinanceFuturesKlines.count.to_i
-
-    all_data = BinanceFuturesKlines.all
-
-    content_tracker = {}
-
-    all_data.each do |record|
-      if content_tracker.key?(record.content)
-        record.destroy
-      else
-        content_tracker[record.content] = true
-      end
-    end
-    
-    after = BinanceFuturesKlines.count.to_i
-
-    puts before - after 
-
   end
 end
