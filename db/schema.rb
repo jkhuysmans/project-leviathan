@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_14_232427) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_012703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_232427) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index "((content -> 0))", name: "kline_idx", using: :gin
+    t.index "symbol, \"interval\", (((content ->> 0))::bigint)", name: "kline_ydx", unique: true
   end
 
   create_table "open_interests", force: :cascade do |t|

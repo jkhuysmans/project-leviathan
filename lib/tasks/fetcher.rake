@@ -320,8 +320,6 @@ namespace :fetcher do
 
   desc "Sort klines in database"
   task sort_klines: :environment do
-  
-
     all_binance_klines = BinanceFuturesKlines.all
     kline_records = []
 
