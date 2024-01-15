@@ -6,7 +6,7 @@ namespace :fetcher do
 
     interval = '1m'
 
-    initial_date_time = DateTime.parse('2024-01-14').utc
+    initial_date_time = DateTime.now.utc
 
     def generate_url(symbol, interval, date_time)
       start_time = date_time.beginning_of_day.to_i * 1e3.to_i
@@ -18,7 +18,7 @@ namespace :fetcher do
 
     workers = []
 
-    worker_count = 7
+    worker_count = 6
 
     queue = Queue.new
 
@@ -320,30 +320,20 @@ namespace :fetcher do
 
   desc "Sort klines in database"
   task sort_klines: :environment do
-    all_binance_klines = BinanceFuturesKlines.all
-    kline_records = []
+    sql = <<-SQL
+      INSERT INTO klines (symbol, day, interval, content, created_at, updated_at)
+      SELECT DISTINCT
+          symbol,
+          day,
+          interval,
+          value AS content,
+          NOW() AS created_at,
+          NOW() AS updated_at
+      FROM binance_futures_klines, jsonb_array_elements(content)
+      ON CONFLICT DO NOTHING;
+    SQL
 
-    all_binance_klines.each do |klines_from_binance|
-      content_data = klines_from_binance.content
-
-      content_data.each do |interval_data|
-
-        kline_records << {
-          symbol: klines_from_binance.symbol,
-          day: klines_from_binance.day,
-          interval: klines_from_binance.interval,
-          content: interval_data
-        }
-
-      end
-    end
-
-    puts kline_records.count
-
-    kline_records.each_slice(100) do |records_slice|
-      Kline.insert_all(records_slice)
-      puts "done"
-    end
+    ActiveRecord::Base.connection.execute(sql)
   end
 
   desc "Sort out duplicates"
