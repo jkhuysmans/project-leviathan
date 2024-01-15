@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_13_153655) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_14_232427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_153655) do
     t.jsonb "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "((content -> 0))", name: "kline_idx", using: :gin
   end
 
   create_table "open_interests", force: :cascade do |t|
