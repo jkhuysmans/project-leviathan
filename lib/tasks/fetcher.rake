@@ -60,7 +60,7 @@ namespace :fetcher do
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
@@ -122,10 +122,10 @@ namespace :fetcher do
 
     all_entries.each_slice(100) do |entries_slice|
       entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
-        { symbol: symbol, day: day, interval: interval, content: content }
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
@@ -190,7 +190,7 @@ namespace :fetcher do
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
@@ -255,7 +255,7 @@ namespace :fetcher do
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
@@ -311,7 +311,7 @@ namespace :fetcher do
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceFuturesKlines.insert_all(entries)
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
   end
