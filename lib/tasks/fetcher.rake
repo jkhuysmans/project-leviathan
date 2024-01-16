@@ -274,7 +274,7 @@ namespace :fetcher do
     all_symbols = all_symbols[1..100]
     all_intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    worker_count = 10
+    worker_count = 12
     queue = Queue.new
     all_symbols.product(all_intervals).each { |item| queue.push(item) }
 
@@ -292,6 +292,7 @@ namespace :fetcher do
         url = URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{item[0]}&interval=#{item[1]}&starttime=#{start_date.to_i * 1000}&endtime=#{end_date.to_i * 1000}&limit=1500")
         response = Net::HTTP.get(url)
         content = JSON.parse(response)
+        p content
 
         raw_records << [item[0], start_date, end_date, item[1], content]
 

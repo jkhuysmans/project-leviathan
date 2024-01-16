@@ -1,10 +1,9 @@
 namespace :daily_fetcher do
     desc "TODO"
-    task :scratch_1m, [:symbol] => :environment do |t, args|
+    task :scratch_daily, [:symbol] => :environment do |t, args|
       
       symbol = args[:symbol]
-  
-      interval = '1m'
+      all_intervals =  ["1m", "3m", "5m", "15m", "30m"]
   
       initial_date_time = DateTime.now.utc
   
@@ -17,28 +16,39 @@ namespace :daily_fetcher do
       end
   
       workers = []
-  
-      worker_count = 6
-  
-      queue = Queue.new
-  
-      worker_count.times do |i|
-        workers << Thread.new do
-          date_time = initial_date_time
-      
-          url = generate_url(symbol, interval, date_time)
-      
+
+    worker_count = 10
+
+    queue = Queue.new
+
+    worker_count.times do |i|
+      workers << Thread.new do
+      all_intervals.each do |interval|
+        start_time = initial_date_time - i.days
+
+        loop do
+          url = generate_url(symbol, interval, start_time)
+          end_time = start_time + 1.days 
+
           response = Net::HTTP.get(url)
-      
+
           content = JSON.parse(response)
-      
-          unless content.empty?
-            puts "Worker #{i}: #{date_time} #{url}:#{content}"
-      
-            queue.push [symbol, date_time.to_date, interval, content]
+
+          if content.empty?
+            break
           end
+
+          puts "Worker #{i}: #{start_time} #{url}:#{content}"
+
+          queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
+
+          start_time = start_time - worker_count.day
+
+          sleep(1)
+        end
         end
       end
+    end
   
       workers.each(&:join)
   
@@ -47,12 +57,12 @@ namespace :daily_fetcher do
       all_entries << queue.pop until queue.empty?
   
       all_entries.each_slice(100) do |entries_slice|
-        entries = entries_slice.map do |symbol, day, interval, content|
-          { symbol: symbol, day: day, interval: interval, content: content }
-        end
-      
-        BinanceFuturesKlines.insert_all(entries)
+      entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
+    
+      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
+    end
   
     end
 
