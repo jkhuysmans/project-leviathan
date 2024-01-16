@@ -7,7 +7,7 @@ class ApiDataController < ApplicationController
 
     interval = params[:interval] || '1h'
 
-    limit = params[:limit] || 20
+    limit = params[:limit] || 50
 
     now = DateTime.now
 

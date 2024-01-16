@@ -6,7 +6,7 @@ namespace :fetcher do
 
     interval = '1m'
 
-    initial_date_time = DateTime.now.utc
+    initial_date_time = DateTime.now.beginning_of_day.utc
 
     def generate_url(symbol, interval, date_time)
       start_time = date_time.beginning_of_day.to_i * 1e3.to_i
@@ -271,10 +271,9 @@ namespace :fetcher do
     end
 
     all_symbols = get_all_symbols
-    all_symbols = all_symbols[1..100]
     all_intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    worker_count = 12
+    worker_count = 6
     queue = Queue.new
     all_symbols.product(all_intervals).each { |item| queue.push(item) }
 

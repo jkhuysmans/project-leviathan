@@ -17,7 +17,7 @@ namespace :daily_fetcher do
   
       workers = []
 
-    worker_count = 10
+    worker_count = 6
 
     queue = Queue.new
 
