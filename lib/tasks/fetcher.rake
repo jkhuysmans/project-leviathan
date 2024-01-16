@@ -360,7 +360,7 @@ namespace :fetcher do
     
             puts "Worker #{i}: #{start_time} #{interval} #{url}"
     
-            queue.push [symbol, start_time, end_time, interval, content]
+            queue.push [symbol, start_time.to_date, end_time.to_date, interval, content]
     
           start_time = start_time - worker_count.months
     
