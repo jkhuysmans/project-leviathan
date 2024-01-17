@@ -1,4 +1,4 @@
-namespace :fetcher do
+namespace :klines_fetcher do
   desc "TODO"
   task :scratch_1m, [:symbol] => :environment do |t, args|
     
