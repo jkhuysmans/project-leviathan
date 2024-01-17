@@ -8,6 +8,7 @@ gem "binance-ruby"
 gem 'binance-connector-ruby'
 gem 'pg'
 gem 'rest-client'
+gem 'whenever'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
