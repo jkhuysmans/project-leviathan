@@ -78,6 +78,7 @@ namespace :klines_refresh do
             now() as updated_at
         from binance_futures_klines, jsonb_array_elements(content) as value
         where jsonb_typeof(content) = 'array'
+        and start_time > DATE '#{date_time.beginning_of_month.to_date}'
         on conflict do nothing;
     SQL
     ActiveRecord::Base.connection.execute(sql)
