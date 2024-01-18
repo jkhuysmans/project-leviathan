@@ -22,5 +22,5 @@
 env :PATH, ENV['PATH']
 
 every 1.minute do
-    rake 'klines_refresh:scratch_by_minute', environment: 'development'
+    rake 'klines_refresh:scratch_by_minute', environment: 'production'
   end
