@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_16_224043) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_18_202056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "binance_futures_klines", force: :cascade do |t|
     t.text "symbol"
-    t.date "start_time"
-    t.date "end_time"
     t.text "interval"
     t.jsonb "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "start_time"
+    t.bigint "end_time"
     t.index ["symbol", "start_time", "end_time", "interval"], name: "index_unique_klines", unique: true
   end
 

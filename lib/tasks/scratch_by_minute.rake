@@ -11,8 +11,6 @@ namespace :klines_refresh do
     end
 
     def generate_url(symbol, interval, start_time, end_time)
-        start_time = start_time.to_i * 1e3.to_i
-        end_time = end_time.to_i * 1e3.to_i
       URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
     end
 
@@ -36,14 +34,18 @@ namespace :klines_refresh do
         if item[1] == "1m" || item[1] == "3m" || item[1] == "5m" || item[1] == "15m"
             start_time = date_time.beginning_of_day
             end_time = date_time.end_of_day
-        elsif item[1] == "30m" || item[1] == "1h" || item[1] == "2h" || item[1] == "4h" || item[1] == "8h" || item[1] == "12h" ||  item[1] == "1d" || item[1] == "3d" || item[1] == "1w" || item[1] == "1M" ||   
+        else
             start_time = date_time.beginning_of_month
             end_time = date_time.end_of_month
           end
+
+        start_time = start_time.to_i * 1e3.to_i
+        end_time = end_time.to_i * 1e3.to_i
         
         url = generate_url(item[0], item[1], start_time, end_time)
         response = Net::HTTP.get(url)
         content = JSON.parse(response)
+
         p content
 
         raw_records << [item[0], start_time, end_time, item[1], content]
@@ -63,24 +65,22 @@ namespace :klines_refresh do
       entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
-    
       BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
     sql = <<-SQL
-        insert into klines (symbol, day, interval, content, created_at, updated_at)
+        insert into klines (symbol, interval, content, created_at, updated_at)
         select distinct
             symbol,
-            start_time as day,
             interval,
             value as content,
             now() as created_at,
             now() as updated_at
         from binance_futures_klines, jsonb_array_elements(content) as value
         where jsonb_typeof(content) = 'array'
-        and start_time > DATE '#{date_time.beginning_of_month.to_date}'
+        and start_time > #{date_time.beginning_of_month.to_i * 1e3.to_i}
         AND EXISTS (
-      SELECT 1 FROM klines WHERE day > DATE '#{date_time.beginning_of_month.to_date}'
+      SELECT 1 FROM klines WHERE (content->>0)::bigint > #{date_time.beginning_of_month.to_i * 1e3.to_i}
   )
         on conflict do nothing;
     SQL
