@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      get '/kline', to: 'api_data#kline'
-      get '/openinterest', to: 'api_data#openinterest'
-    end
-  end
+  # Define the routes directly at the top level without namespacing
+  get '/kline', to: 'api/v1/api_data#kline', defaults: { format: :json }
+  get '/openinterest', to: 'api/v1/api_data#openinterest', defaults: { format: :json }
 end

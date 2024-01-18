@@ -23,9 +23,19 @@ class ApiDataController < ApplicationController
       where(symbol: symbol, interval: interval).
       where('(content->>0)::bigint >= ?', start_time).
       where('(content->>0)::bigint <= ?', end_time).
-      limit(limit)
+      group(:content).
+      limit(limit).
+      pluck(:content)
 
-    render json: entries
+      result = {
+      "symbol": symbol,
+      "start_time": start_time,
+      "end_time": end_time,
+      "interval": interval,
+      "klines": entries
+    }
+
+    render json: result
   end
 
   def openinterest
