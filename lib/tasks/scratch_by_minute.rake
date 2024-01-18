@@ -36,7 +36,7 @@ namespace :klines_refresh do
         if item[1] == "1m" || item[1] == "3m" || item[1] == "5m" || item[1] == "15m"
             start_time = date_time.beginning_of_day
             end_time = date_time.end_of_day
-          else
+        elsif item[1] == "30m" || item[1] == "1h" || item[1] == "2h" || item[1] == "4h" || item[1] == "8h" || item[1] == "12h" ||  item[1] == "1d" || item[1] == "3d" || item[1] == "1w" || item[1] == "1M" ||   
             start_time = date_time.beginning_of_month
             end_time = date_time.end_of_month
           end
