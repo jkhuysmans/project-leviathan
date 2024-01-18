@@ -7,7 +7,7 @@ class ApiDataController < ApplicationController
 
     interval = params[:interval] || '1h'
 
-    limit = params[:limit] || 50
+    limit = params[:limit] || 1500
 
     now = DateTime.now
 
@@ -23,9 +23,12 @@ class ApiDataController < ApplicationController
       where(symbol: symbol, interval: interval).
       where('(content->>0)::bigint >= ?', start_time).
       where('(content->>0)::bigint <= ?', end_time).
+      order(Arel.sql('(content->>0)::bigint DESC')).
       group(:content).
       limit(limit).
       pluck(:content)
+
+      entries.reverse!
 
       result = {
       "symbol": symbol,
