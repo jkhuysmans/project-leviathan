@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_18_202056) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_18_233517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_202056) do
     t.datetime "updated_at", null: false
     t.bigint "start_time"
     t.bigint "end_time"
-    t.index ["symbol", "start_time", "end_time", "interval"], name: "index_unique_klines", unique: true
   end
 
   create_table "binance_open_interests", force: :cascade do |t|
@@ -31,8 +30,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_202056) do
     t.jsonb "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "start_time"
-    t.date "end_time"
+    t.bigint "start_time"
+    t.bigint "end_time"
     t.index ["symbol", "start_time", "end_time", "interval"], name: "index_unique_oi", unique: true
   end
 

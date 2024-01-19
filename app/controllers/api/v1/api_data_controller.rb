@@ -42,42 +42,42 @@ class ApiDataController < ApplicationController
   end
 
   def openinterest
-    def parse_interval(interval)
-      all_possible_intervals = ["5m", "15m", "30m", "1h", "2h", "4h", "6h", "12h", "1d"]
-      all_possible_intervals.include?(interval)
-    end
-  
-    def check_interval(oi, interval)
-      oi.interval == interval
-    end
-  
-    interval = params[:interval]
-    if interval.blank? || !parse_interval(interval)
-      render(json: { error: 'Invalid or missing interval' }, status: :bad_request) and return
-    end
+    symbol = params[:symbol] || 'BTCUSDT'
 
-    symbol = params[:symbol]
-    if symbol.blank?
-      render(json: { error: 'Missing symbol' }, status: :bad_request) and return
-    end
+    interval = params[:interval] || '1h'
 
-    default_start_time = ((DateTime.now.strftime('%s').to_i) * 1000) - 86400000
+    limit = params[:limit] || 1500
+
+    now = DateTime.now
+
+    default_start_time = (now - 1.day).to_i * 1e3.to_i
+
+    default_end_time =  now.to_i * 1e3.to_i
 
     start_time = params[:start_time] ? params[:start_time].to_i : default_start_time
-    end_time = params[:end_time] ? params[:end_time].to_i : (start_time + 86400000)
 
-    entries = symbol ? OpenInterests.where(symbol: symbol) : OpenInterests.all
+    end_time = params[:end_time] ? params[:end_time].to_i : default_end_time
 
-    if start_time && end_time
-      entries = entries.select do |oi|
-        content_timestamp = oi.content["timestamp"].to_i
-        content_timestamp.between?(start_time, end_time)
-      end
-    end
+    entries = OpenInterests.
+      where(symbol: symbol, interval: interval).
+      where("((content ->> 'timestamp')::bigint >= ?)", start_time).
+      where("((content ->> 'timestamp')::bigint <= ?)", end_time).
+      order(Arel.sql("((content ->> 'timestamp')::bigint) DESC")).
+      group(:content).
+      limit(limit).
+      pluck(:content)
 
-    entries = entries.select { |oi| check_interval(oi, interval) } if interval
+      entries.reverse!
 
-    render json: entries
+      result = {
+      "symbol": symbol,
+      "start_time": start_time,
+      "end_time": end_time,
+      "interval": interval,
+      "open interests": entries
+    }
+
+    render json: result
   end
 end
 

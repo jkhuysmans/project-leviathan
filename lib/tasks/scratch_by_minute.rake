@@ -2,6 +2,7 @@ namespace :klines_refresh do
     desc "TODO"
     task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
+      rightnow = Time.now
     def get_all_symbols
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
       response = Net::HTTP.get(url)
@@ -85,6 +86,10 @@ namespace :klines_refresh do
         on conflict do nothing;
     SQL
     ActiveRecord::Base.connection.execute(sql)
+
+  theend = Time.now
+
+  puts (theend - rightnow)
 
   end
 
