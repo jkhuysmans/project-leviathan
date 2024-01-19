@@ -141,6 +141,7 @@ on conflict do nothing;
 
     all_entries.each_slice(100) do |entries_slice|
       entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
+        p "#{symbol} #{start_time} #{end_time}"
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
@@ -157,7 +158,7 @@ on conflict do nothing;
       now() as updated_at
   from binance_open_interests, jsonb_array_elements(content) as value
   where jsonb_typeof(content) = 'array'
-  and start_time > #{date_time.beginning_of_month.to_i * 1e3.to_i}
+  and start_time > #{date_time.last_month.beginning_of_month.to_i * 1e3.to_i}
         AND EXISTS (
       SELECT 1 FROM open_interests WHERE (content ->> 'timestamp')::bigint > #{date_time.beginning_of_month.to_i * 1e3.to_i}
   )
