@@ -25,6 +25,6 @@ every 1.minute do
     rake 'klines_refresh:scratch_by_minute', environment: 'production'
   end
 
-every '2,7,12,17,22,27,32,37,42,47,52,57 * * * *' do
+every '1,6,11,16,21,26,31,36,41,46,51,56 * * * *' do
   rake 'oi_fetcher:refresh_oi', environment: 'production'
 end
