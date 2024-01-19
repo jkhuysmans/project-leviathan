@@ -79,7 +79,7 @@ namespace :klines_refresh do
             now() as updated_at
         from binance_futures_klines, jsonb_array_elements(content) as value
         where jsonb_typeof(content) = 'array'
-        and start_time > #{date_time.beginning_of_month.to_i * 1e3.to_i}
+        and start_time > #{date_time.last_month.beginning_of_month.to_i * 1e3.to_i}
         AND EXISTS (
       SELECT 1 FROM klines WHERE (content->>0)::bigint > #{date_time.beginning_of_month.to_i * 1e3.to_i}
   )
