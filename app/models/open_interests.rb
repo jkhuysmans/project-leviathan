@@ -1,2 +1,0 @@
-class OpenInterests < ApplicationRecord
-end

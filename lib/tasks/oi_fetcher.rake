@@ -57,7 +57,7 @@ namespace :oi_fetcher do
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceOpenInterests.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
+      BinanceOpenInterest.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
     sql = <<-SQL
@@ -65,7 +65,7 @@ namespace :oi_fetcher do
 select distinct
     symbol,
     interval,
-    value as content,
+    value - 'symbol' as content,
     now() as created_at,
     now() as updated_at
 from binance_open_interests, jsonb_array_elements(content) as value
@@ -145,7 +145,7 @@ on conflict do nothing;
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
     
-      BinanceOpenInterests.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
+      BinanceOpenInterest.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
     sql = <<-SQL
@@ -153,7 +153,7 @@ on conflict do nothing;
   select distinct
       symbol,
       interval,
-      value as content,
+      value - 'symbol' as content,
       now() as created_at,
       now() as updated_at
   from binance_open_interests, jsonb_array_elements(content) as value
@@ -165,8 +165,6 @@ on conflict do nothing;
   on conflict do nothing;
     SQL
     ActiveRecord::Base.connection.execute(sql)
-
-
 
     end
 

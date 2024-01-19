@@ -66,7 +66,7 @@ namespace :klines_refresh do
       entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
-      BinanceFuturesKlines.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
+      BinanceFutureKline.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
 
     sql = <<-SQL
