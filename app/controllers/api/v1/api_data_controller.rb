@@ -41,7 +41,7 @@ class ApiDataController < ApplicationController
     render json: result
   end
 
-  def openinterest
+  def open_interest
     symbol = params[:symbol] || 'BTCUSDT'
 
     interval = params[:interval] || '1h'
