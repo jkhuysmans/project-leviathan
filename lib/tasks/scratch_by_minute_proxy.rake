@@ -27,12 +27,8 @@ namespace :klines_proxy do
             url = generate_url(item[0], item[1], start_time, end_time)
     
             if proxy_config[:host] == nil
-              response = Net::HTTP.get(url)
-              content = JSON.parse(response)
-
-              p content
-
-              raw_records << [item[0], start_time, end_time, item[1], content]
+              response_body = Net::HTTP.get(url)
+              content = JSON.parse(response_body)
             else
               proxy = Net::HTTP::Proxy(proxy_config[:host], proxy_config[:port], proxy_config[:password])
 
@@ -43,12 +39,14 @@ namespace :klines_proxy do
               response = http.request(request)
     
               response_body = response.body
-              content = JSON.parse(response_body)
-    
-              p content
-    
-              raw_records << [item[0], start_time, end_time, item[1], content]
+              
             end
+
+            content = JSON.parse(response_body)
+    
+            p content
+    
+            raw_records << [item[0], start_time, end_time, item[1], content]
 
             sleep(1)
           end
