@@ -2,10 +2,61 @@ namespace :klines_proxy do
     desc "TODO"
     task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-        proxy_host = '54.246.134.123'
-        proxy_port = '3128'
-        proxy_password = 'CNALavjy6nuWl6bdbaB8Ug'
-        proxy = Net::HTTP::Proxy(proxy_host, proxy_port, proxy_password)
+      start = Time.now
+
+      def fetch_with_proxy(proxy_config, queue, raw_records, date_time)
+        worker_count = 6
+        workers = []
+
+        worker_count.times do
+          workers << Thread.new do
+          until queue.empty?
+            item = queue.pop
+    
+            if item[1] == "1m" || item[1] == "3m" || item[1] == "5m" || item[1] == "15m"
+                start_time = date_time.beginning_of_day
+                end_time = date_time.end_of_day
+            else
+                start_time = date_time.beginning_of_month
+                end_time = date_time.end_of_month
+              end
+
+            start_time = start_time.to_i * 1e3.to_i
+            end_time = end_time.to_i * 1e3.to_i
+            
+            url = generate_url(item[0], item[1], start_time, end_time)
+    
+            if proxy_config[:host] == nil
+              response = Net::HTTP.get(url)
+              content = JSON.parse(response)
+
+              p content
+
+              raw_records << [item[0], start_time, end_time, item[1], content]
+            else
+              proxy = Net::HTTP::Proxy(proxy_config[:host], proxy_config[:port], proxy_config[:password])
+
+              http = proxy.new(url.host, url.port)
+              http.use_ssl = (url.scheme == 'https')
+    
+              request = Net::HTTP::Get.new(url)
+              response = http.request(request)
+    
+              response_body = response.body
+              content = JSON.parse(response_body)
+    
+              p content
+    
+              raw_records << [item[0], start_time, end_time, item[1], content]
+            end
+
+            sleep(1)
+          end
+          end
+        end
+    
+        workers.each(&:join)
+      end
 
     def get_all_symbols
       url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
@@ -19,10 +70,10 @@ namespace :klines_proxy do
       URI("https://fapi.binance.com/fapi/v1/klines?symbol=#{symbol}&interval=#{interval}&starttime=#{start_time}&endtime=#{end_time}&limit=1500")
     end
 
-    all_symbols = ["BTCUSDT", "ETHUSDT", "SOLUSDT"]
+    all_symbols = get_all_symbols
+    all_symbols = all_symbols[0..2]
     all_intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
-    worker_count = 6
     queue = Queue.new
     all_symbols.product(all_intervals).each { |item| queue.push(item) }
 
@@ -30,44 +81,24 @@ namespace :klines_proxy do
 
     date_time = DateTime.now.utc
 
-    workers = []
-    worker_count.times do
-      workers << Thread.new do
-      until queue.empty?
-        item = queue.pop
+    proxies = [
+      {host: '54.74.136.212', port: '3128', password: 'CNALavjy6nuWl6bdbaB8Ug'},
+        {host: '54.246.134.123', port: '3128', password: 'CNALavjy6nuWl6bdbaB8Ug'},
+        {host: nil}
+    ]
 
-        if item[1] == "1m" || item[1] == "3m" || item[1] == "5m" || item[1] == "15m"
-            start_time = date_time.beginning_of_day
-            end_time = date_time.end_of_day
-        else
-            start_time = date_time.beginning_of_month
-            end_time = date_time.end_of_month
-          end
+    proxy_threads = []
 
-        start_time = start_time.to_i * 1e3.to_i
-        end_time = end_time.to_i * 1e3.to_i
-        
-        url = generate_url(item[0], item[1], start_time, end_time)
-
-        http = proxy.new(url.host, url.port)
-        http.use_ssl = (url.scheme == 'https')
-
-        request = Net::HTTP::Get.new(url)
-        response = http.request(request)
-
-        response_body = response.body
-        content = JSON.parse(response_body)
-
-        p content
-
-        raw_records << [item[0], start_time, end_time, item[1], content]
-
-        sleep(1)
-      end
+    proxies.each do |proxy_config|
+      proxy_threads << Thread.new do
+        fetch_with_proxy(proxy_config, queue, raw_records, date_time)
       end
     end
+    
+    proxy_threads.each(&:join)
 
-    workers.each(&:join)
+
+    start_insert = Time.now
 
     all_entries = []
 
@@ -77,8 +108,10 @@ namespace :klines_proxy do
       entries = entries_slice.map do |symbol, start_time, end_time, interval, content|
         { symbol: symbol, start_time: start_time, end_time: end_time, interval: interval, content: content }
       end
-      BinanceFutureKline.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
+      BinanceFuturesKline.upsert_all(entries, unique_by: [:symbol, :start_time, :end_time, :interval])
     end
+
+    puts "Data inserted into BinanceFuturesKline"
 
     sql = <<-SQL
         insert into klines (symbol, interval, content, created_at, updated_at)
@@ -98,6 +131,10 @@ namespace :klines_proxy do
     SQL
     ActiveRecord::Base.connection.execute(sql)
 
+    puts "Data sorted"
+
+    puts "done in: #{Time.now - start}
+  inserted in: #{Time.now - start_insert}"
   end
 
 end

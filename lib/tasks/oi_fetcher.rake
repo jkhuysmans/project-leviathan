@@ -36,8 +36,6 @@ namespace :oi_fetcher do
 
         response = Net::HTTP.get(url)
         content = JSON.parse(response)
-        puts "worker: #{item[0]} #{item[1]}"
-        p url
 
         raw_records << [item[0], start_time, end_time, item[1], content]
 
