@@ -271,6 +271,7 @@ DEPENDENCIES
   binance-connector-ruby
   binance-ruby
   bootsnap
+  concurrent-ruby
   debug
   pg
   puma (>= 5.0)
