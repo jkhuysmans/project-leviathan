@@ -10,6 +10,7 @@ gem 'pg'
 gem 'rest-client'
 gem 'whenever', '~> 0.9.4'
 gem 'concurrent-ruby'
+gem 'websocket-client-simple'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"

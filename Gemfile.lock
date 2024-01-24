@@ -102,6 +102,7 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    event_emitter (0.2.6)
     eventmachine (1.2.7)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
@@ -245,6 +246,9 @@ GEM
       concurrent-ruby (~> 1.0)
     webrick (1.8.1)
     websocket (1.2.10)
+    websocket-client-simple (0.8.0)
+      event_emitter
+      websocket
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-eventmachine-base (1.2.0)
@@ -278,6 +282,7 @@ DEPENDENCIES
   rails (~> 7.1.2)
   rest-client
   tzinfo-data
+  websocket-client-simple
   whenever (~> 0.9.4)
 
 RUBY VERSION

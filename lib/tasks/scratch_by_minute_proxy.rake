@@ -54,7 +54,7 @@ namespace :klines_proxy do
 
           sleep(1)
 
-          puts "fetched in #{Time.now - start_parse}"
+          # puts "fetched in #{Time.now - start_parse} from #{}"
         end
         
         end
@@ -76,7 +76,7 @@ namespace :klines_proxy do
   end
 
   all_symbols = get_all_symbols
-  all_symbols = all_symbols[0..7]
+  all_symbols = all_symbols[0..11]
   puts "Time fetching symbols: #{Time.now - start}"
   all_intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
 
@@ -88,6 +88,7 @@ namespace :klines_proxy do
   date_time = DateTime.now.utc
 
   proxies = [
+    {host: '54.74.136.212', port: '3128', password: 'CNALavjy6nuWl6bdbaB8Ug'},
     {host: '54.74.136.212', port: '3128', password: 'CNALavjy6nuWl6bdbaB8Ug'}
   ]
   start_download = Time.now 
@@ -95,8 +96,11 @@ namespace :klines_proxy do
   futures = []
   
 proxies.each do |proxy_config|
+  
   future = Concurrent::Future.execute do
+    puts Time.now
     fetch_with_proxy(proxy_config, queue, raw_records, date_time)
+    puts Time.now
   end
   futures << future
 end
