@@ -6,9 +6,17 @@ namespace :klines_websocket do
 
         def create_websocket_client(symbols, intervals, raw_records)
           streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
-          stream_url = "wss://stream.binance.com:9443/stream?streams=#{streams.join('/')}"
+          puts streams.count
+          
+          threads = []
 
-          puts stream_url
+          streams.each_slice(1000) do |stream_slice|
+            threads << Thread.new do
+
+             puts stream_slice.count
+             sleep(300)
+
+            stream_url = "wss://stream.binance.com:9443/stream?streams=#{stream_slice.join('/')}"
           
             WebSocket::Client::Simple.connect stream_url do |ws|
 
@@ -25,27 +33,41 @@ namespace :klines_websocket do
 
                     transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
 
-                    p transformed_data
                     Kline.create(symbol: symbol.upcase(), interval: interval, content: transformed_data)
                     
                   end
               end
           
               ws.on :open do
-                puts "Connected to #{stream_url}"
+                puts "Connected to"
               end
           
               ws.on :close do |e|
                 puts "Closed connection to #{stream_url}"
               end
           
-              
+
+            end
             end
           end
 
+          threads.each(&:join)
+        end
+
+          def get_all_symbols
+            url = URI('https://fapi.binance.com/fapi/v1/exchangeInfo')
+            response = Net::HTTP.get(url)
+            data = JSON.parse(response)
+            all_symbols = data['symbols'].select { |data| data['status'] == "TRADING"}.map  { |data| data['symbol']}
+            all_symbols
+          end
+
           intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
-          symbols = ["btcusdt"]
+          symbols = get_all_symbols.map { |symbol| symbol.downcase }
+          symbols = symbols
+          
       
+
           create_websocket_client(symbols, intervals, raw_records)
 
           loop do
