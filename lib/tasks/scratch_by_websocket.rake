@@ -10,7 +10,7 @@ namespace :klines_websocket do
           
           threads = []
 
-          streams.each_slice(1000) do |stream_slice|
+          streams.each_slice(1024) do |stream_slice|
             threads << Thread.new do
 
 
@@ -30,7 +30,7 @@ namespace :klines_websocket do
                     interval = interval_info.split('_').last
 
                     transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
-
+                    
                     Kline.create(symbol: symbol.upcase(), interval: interval, content: transformed_data)
                     
                   end
@@ -62,10 +62,8 @@ namespace :klines_websocket do
 
           intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
           symbols = get_all_symbols.map { |symbol| symbol.downcase }
-          symbols = symbols
-          
-      
-
+          symbols = symbols[0..49]
+  
           create_websocket_client(symbols, intervals, raw_records)
 
           loop do
