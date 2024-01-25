@@ -13,8 +13,6 @@ namespace :klines_websocket do
           streams.each_slice(1000) do |stream_slice|
             threads << Thread.new do
 
-             puts stream_slice.count
-             sleep(300)
 
             stream_url = "wss://stream.binance.com:9443/stream?streams=#{stream_slice.join('/')}"
           
