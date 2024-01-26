@@ -2,7 +2,7 @@ namespace :klines_websocket do
     desc "TODO"
     task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-      raw_records = Queue.new
+      raw_records = []
 
         def create_websocket_client(symbols, intervals, raw_records)
           streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
@@ -20,7 +20,6 @@ namespace :klines_websocket do
 
               ws.on :message do |msg|
             
-                # puts msg.data
                   data = JSON.parse(msg.data)
                   if (data['data'] || {})['k']['x']
                     kline_data = data['data']['k']
@@ -31,6 +30,8 @@ namespace :klines_websocket do
 
                     transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
                     
+                    result = [symbol, interval, transformed_data]
+                    puts Time.now.inspect + ": " + result.inspect
                     Kline.create(symbol: symbol.upcase(), interval: interval, content: transformed_data)
                     
                   end
@@ -62,12 +63,15 @@ namespace :klines_websocket do
 
           intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
           symbols = get_all_symbols.map { |symbol| symbol.downcase }
+
           symbols = symbols[0..49]
+          p symbols
   
           create_websocket_client(symbols, intervals, raw_records)
 
           loop do
-            sleep 1
+            sleep 60
+            # p "#{Time.now}:  #{raw_records.count}"
           end
 
 
