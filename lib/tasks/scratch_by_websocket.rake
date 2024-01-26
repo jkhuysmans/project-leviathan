@@ -71,7 +71,7 @@ namespace :klines_websocket do
 
           loop do
             sleep 60
-            # p "#{Time.now}:  #{raw_records.count}"
+           
           end
 
 
