@@ -22,7 +22,7 @@ namespace :klines_websocket do
 
             ws.on :message do |msg|
           
-              $logger.info(msg.data)
+              $logger.info("Received message: #{msg.data}")
                 data = JSON.parse(msg.data)
                 if (data['data'] || {})['k']['x']
                   kline_data = data['data']['k']
