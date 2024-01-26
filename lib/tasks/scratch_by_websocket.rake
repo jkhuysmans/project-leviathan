@@ -2,7 +2,7 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $logger = Logger.new(STDOUT)
 
     raw_records = []
 
@@ -16,9 +16,9 @@ namespace :klines_websocket do
           threads << Thread.new do
 
 
-          stream_url = "wss://stream.binance.com:9443/stream?streams=#{stream_slice.join('/')}"
+            base_url = "wss://stream.binance.com:9443/ws"
         
-          WebSocket::Client::Simple.connect stream_url do |ws|
+          WebSocket::Client::Simple.connect base_url do |ws|
 
             ws.on :message do |msg|
           
@@ -41,12 +41,19 @@ namespace :klines_websocket do
             end
         
             ws.on :open do
-              $logger.info("Subscribed to #{stream_url}")
+              $logger.info("Subscribed to #{base_url}")
 
+              subscribe_request = {
+                "method": "SUBSCRIBE",
+                "params": streams,
+                "id": 1
+              }
+              $logger.info("Subscribe request: #{subscribe_request.to_json}")
+              ws.send(subscribe_request.to_json)
             end
         
             ws.on :close do |e|
-              puts "Closed connection to #{stream_url}"
+              puts "Closed connection to #{base_url}"
             end
         
 
@@ -67,8 +74,7 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-
-        symbols = symbols[0..49]
+        symbols = symbols[0..13]
 
         create_websocket_client(symbols, intervals, raw_records)
 
