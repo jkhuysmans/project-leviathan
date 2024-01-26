@@ -1,0 +1,984 @@
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (15.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOTUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"6.68900000\",\"6.69000000\",\"6.68400000\",\"6.68500000\",\"4211.01000000\",1706296499999,\"28154.94284000\",44,\"1554.49000000\",\"10394.12997000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.045589"], ["updated_at", "2024-01-26 19:15:06.045589"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ADAUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.48430000\",\"0.48450000\",\"0.48380000\",\"0.48430000\",\"370430.10000000\",1706296499999,\"179354.89878000\",576,\"113834.10000000\",\"55110.64774000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.090846"], ["updated_at", "2024-01-26 19:15:06.090846"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (17.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "NEOUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"10.92000000\",\"10.93000000\",\"10.92000000\",\"10.92000000\",\"406.34000000\",1706296499999,\"4437.28210000\",49,\"73.53000000\",\"802.99690000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.151578"], ["updated_at", "2024-01-26 19:15:06.151578"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ADAUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.48560000\",\"0.48600000\",\"0.48380000\",\"0.48430000\",\"2436434.40000000\",1706296499999,\"1180935.06671000\",3139,\"556788.60000000\",\"269812.30692000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.191337"], ["updated_at", "2024-01-26 19:15:06.191337"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (15.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ADAUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.48410000\",\"0.48450000\",\"0.48380000\",\"0.48430000\",\"642318.00000000\",1706296499999,\"311004.03238000\",1091,\"194629.60000000\",\"94235.16453000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.236428"], ["updated_at", "2024-01-26 19:15:06.236428"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "NEOUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"10.95000000\",\"10.95000000\",\"10.91000000\",\"10.92000000\",\"3052.25000000\",1706296499999,\"33314.10880000\",187,\"1090.64000000\",\"11903.87620000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.275196"], ["updated_at", "2024-01-26 19:15:06.275196"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "NEOUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"10.92000000\",\"10.93000000\",\"10.92000000\",\"10.92000000\",\"105.29000000\",1706296499999,\"1149.81610000\",16,\"73.53000000\",\"802.99690000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.302451"], ["updated_at", "2024-01-26 19:15:06.302451"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOTUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"6.71600000\",\"6.71600000\",\"6.68200000\",\"6.68500000\",\"46923.97000000\",1706296499999,\"314189.52765000\",702,\"18303.90000000\",\"122530.42042000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.328732"], ["updated_at", "2024-01-26 19:15:06.328732"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOTUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"6.68900000\",\"6.69200000\",\"6.68200000\",\"6.68500000\",\"11986.30000000\",1706296499999,\"80147.63816000\",205,\"5422.60000000\",\"36262.21324000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.355649"], ["updated_at", "2024-01-26 19:15:06.355649"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOTUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"6.68700000\",\"6.69000000\",\"6.68200000\",\"6.68500000\",\"7928.56000000\",1706296499999,\"53012.41446000\",114,\"3509.99000000\",\"23470.34806000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.382866"], ["updated_at", "2024-01-26 19:15:06.382866"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ADAUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.48450000\",\"0.48450000\",\"0.48420000\",\"0.48430000\",\"104358.80000000\",1706296499999,\"50545.75617000\",153,\"15675.70000000\",\"7592.38357000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.406373"], ["updated_at", "2024-01-26 19:15:06.406373"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "NEOUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"10.92000000\",\"10.92000000\",\"10.92000000\",\"10.92000000\",\"0.97000000\",1706296499999,\"10.59240000\",1,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.431115"], ["updated_at", "2024-01-26 19:15:06.431115"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EOSUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.70500000\",\"0.70500000\",\"0.70300000\",\"0.70400000\",\"55999.30000000\",1706296499999,\"39419.59040000\",83,\"12507.10000000\",\"8805.05930000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.455494"], ["updated_at", "2024-01-26 19:15:06.455494"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EOSUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.70400000\",\"0.70400000\",\"0.70400000\",\"0.70400000\",\"10998.10000000\",1706296499999,\"7742.66240000\",8,\"125.10000000\",\"88.07040000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.480001"], ["updated_at", "2024-01-26 19:15:06.480001"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "TRBUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"119.67000000\",\"119.69000000\",\"119.55000000\",\"119.55000000\",\"154.77000000\",1706296499999,\"18515.33180000\",118,\"71.03000000\",\"8497.79870000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.525675"], ["updated_at", "2024-01-26 19:15:06.525675"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XMRUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"158.90000000\",\"159.00000000\",\"158.80000000\",\"158.80000000\",\"68.10800000\",1706296499999,\"10818.61610000\",36,\"10.77800000\",\"1712.63410000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.559357"], ["updated_at", "2024-01-26 19:15:06.559357"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"23.96000000\",\"23.96000000\",\"23.87000000\",\"23.94000000\",\"15279.73000000\",1706296499999,\"365194.56570000\",504,\"6894.43000000\",\"164833.72990000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.590627"], ["updated_at", "2024-01-26 19:15:06.590627"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"23.92000000\",\"23.94000000\",\"23.90000000\",\"23.94000000\",\"1044.81000000\",1706296499999,\"24992.38900000\",59,\"713.39000000\",\"17067.59750000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.624567"], ["updated_at", "2024-01-26 19:15:06.624567"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (10.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ATOMUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"9.69800000\",\"9.69800000\",\"9.68300000\",\"9.69100000\",\"1107.39000000\",1706296499999,\"10730.47477000\",89,\"433.42000000\",\"4199.66388000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.651925"], ["updated_at", "2024-01-26 19:15:06.651925"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "TRBUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"119.87000000\",\"120.07000000\",\"119.39000000\",\"119.55000000\",\"2336.20000000\",1706296499999,\"279630.31730000\",1474,\"1155.06000000\",\"138326.62100000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.685270"], ["updated_at", "2024-01-26 19:15:06.685270"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RUNEUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"4.36800000\",\"4.37000000\",\"4.36400000\",\"4.36800000\",\"11561.50000000\",1706296499999,\"50492.59300000\",160,\"5683.40000000\",\"24822.68950000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.716735"], ["updated_at", "2024-01-26 19:15:06.716735"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RUNEUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"4.37000000\",\"4.37000000\",\"4.36800000\",\"4.36800000\",\"1142.30000000\",1706296499999,\"4990.79800000\",45,\"1120.50000000\",\"4895.55650000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.741946"], ["updated_at", "2024-01-26 19:15:06.741946"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XMRUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"158.10000000\",\"159.00000000\",\"158.10000000\",\"158.80000000\",\"787.66800000\",1706296499999,\"125024.30550000\",489,\"529.90200000\",\"84122.24870000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.767292"], ["updated_at", "2024-01-26 19:15:06.767292"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"23.94000000\",\"23.94000000\",\"23.93000000\",\"23.94000000\",\"146.42000000\",1706296499999,\"3505.10570000\",12,\"102.62000000\",\"2456.72280000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.792358"], ["updated_at", "2024-01-26 19:15:06.792358"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "YFIUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"7252.00000000\",\"7259.00000000\",\"7247.00000000\",\"7253.00000000\",\"1.52859000\",1706296499999,\"11082.07040000\",43,\"0.36716000\",\"2663.49170000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.815865"], ["updated_at", "2024-01-26 19:15:06.815865"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "YFIUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"7249.00000000\",\"7253.00000000\",\"7248.00000000\",\"7253.00000000\",\"0.03478000\",1706296499999,\"252.18517000\",10,\"0.03051000\",\"221.23517000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.837314"], ["updated_at", "2024-01-26 19:15:06.837314"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ATOMUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"9.69800000\",\"9.70200000\",\"9.68300000\",\"9.69100000\",\"1611.69000000\",1706296499999,\"15620.65832000\",147,\"596.26000000\",\"5778.88787000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.860649"], ["updated_at", "2024-01-26 19:15:06.860649"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ATOMUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"9.69000000\",\"9.69200000\",\"9.69000000\",\"9.69100000\",\"260.20000000\",1706296499999,\"2521.76163000\",13,\"211.13000000\",\"2046.26691000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.887486"], ["updated_at", "2024-01-26 19:15:06.887486"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ONTUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.23440000\",\"0.23440000\",\"0.23430000\",\"0.23440000\",\"1136.00000000\",1706296499999,\"266.26340000\",4,\"1113.00000000\",\"260.87220000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.917822"], ["updated_at", "2024-01-26 19:15:06.917822"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EOSUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.70400000\",\"0.70400000\",\"0.70400000\",\"0.70400000\",\"14016.60000000\",1706296499999,\"9867.68640000\",24,\"3143.60000000\",\"2213.09440000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.944998"], ["updated_at", "2024-01-26 19:15:06.944998"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EOSUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.70400000\",\"0.70400000\",\"0.70400000\",\"0.70400000\",\"12223.90000000\",1706296499999,\"8605.62560000\",11,\"1350.90000000\",\"951.03360000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.968602"], ["updated_at", "2024-01-26 19:15:06.968602"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BALUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"3.67600000\",\"3.67900000\",\"3.67400000\",\"3.67800000\",\"1636.80000000\",1706296499999,\"6019.50157000\",31,\"1610.34000000\",\"5922.26179000\",\"0\"]"], ["created_at", "2024-01-26 19:15:06.993170"], ["updated_at", "2024-01-26 19:15:06.993170"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BALUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"3.67500000\",\"3.67900000\",\"3.67500000\",\"3.67800000\",\"1610.51000000\",1706296499999,\"5922.88654000\",27,\"1590.11000000\",\"5847.91654000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.028502"], ["updated_at", "2024-01-26 19:15:07.028502"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RUNEUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"4.37700000\",\"4.37900000\",\"4.35900000\",\"4.36800000\",\"74088.80000000\",1706296499999,\"323764.56730000\",767,\"39133.90000000\",\"171091.64910000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.055146"], ["updated_at", "2024-01-26 19:15:07.055146"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RUNEUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"4.36900000\",\"4.37000000\",\"4.36400000\",\"4.36800000\",\"5991.30000000\",1706296499999,\"26163.61350000\",111,\"3095.80000000\",\"13521.62120000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.080484"], ["updated_at", "2024-01-26 19:15:07.080484"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XMRUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"158.90000000\",\"158.90000000\",\"158.80000000\",\"158.80000000\",\"32.41500000\",1706296499999,\"5149.61490000\",15,\"5.22200000\",\"829.77580000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.105118"], ["updated_at", "2024-01-26 19:15:07.105118"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ATOMUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"9.71100000\",\"9.71500000\",\"9.68300000\",\"9.69100000\",\"7386.90000000\",1706296499999,\"71652.89381000\",468,\"3650.42000000\",\"35413.39490000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.126937"], ["updated_at", "2024-01-26 19:15:07.126937"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ONTUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.23450000\",\"0.23460000\",\"0.23380000\",\"0.23440000\",\"10416.00000000\",1706296499999,\"2440.60580000\",42,\"8996.00000000\",\"2108.16180000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.148790"], ["updated_at", "2024-01-26 19:15:07.148790"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (9.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ONTUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.23440000\",\"0.23440000\",\"0.23440000\",\"0.23440000\",\"0.00000000\",1706296499999,\"0.00000000\",0,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.172539"], ["updated_at", "2024-01-26 19:15:07.172539"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BALUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"3.68000000\",\"3.68100000\",\"3.67000000\",\"3.67800000\",\"2163.66000000\",1706296499999,\"7956.64044000\",62,\"2055.07000000\",\"7557.44839000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.207170"], ["updated_at", "2024-01-26 19:15:07.207170"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BALUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"3.67800000\",\"3.67800000\",\"3.67800000\",\"3.67800000\",\"149.61000000\",1706296499999,\"550.26558000\",2,\"149.61000000\",\"550.26558000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.231127"], ["updated_at", "2024-01-26 19:15:07.231127"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "TRBUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"119.64000000\",\"119.74000000\",\"119.49000000\",\"119.55000000\",\"446.21000000\",1706296499999,\"53355.87420000\",384,\"169.21000000\",\"20236.19700000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.257744"], ["updated_at", "2024-01-26 19:15:07.257744"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "TRBUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"119.51000000\",\"119.70000000\",\"119.50000000\",\"119.55000000\",\"260.49000000\",1706296499999,\"31154.86810000\",261,\"136.30000000\",\"16301.60600000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.282862"], ["updated_at", "2024-01-26 19:15:07.282862"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XMRUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"158.90000000\",\"159.00000000\",\"158.80000000\",\"158.80000000\",\"137.79900000\",1706296499999,\"21890.06040000\",68,\"11.07500000\",\"1759.83060000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.306986"], ["updated_at", "2024-01-26 19:15:07.306986"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"23.91000000\",\"23.94000000\",\"23.90000000\",\"23.94000000\",\"558.08000000\",1706296499999,\"13350.20630000\",37,\"418.46000000\",\"10011.37400000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.328430"], ["updated_at", "2024-01-26 19:15:07.328430"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "YFIUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"7259.00000000\",\"7263.00000000\",\"7240.00000000\",\"7253.00000000\",\"5.36842000\",1706296499999,\"38922.96054000\",161,\"3.33946000\",\"24210.51508000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.354127"], ["updated_at", "2024-01-26 19:15:07.354127"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "YFIUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"7253.00000000\",\"7253.00000000\",\"7253.00000000\",\"7253.00000000\",\"0.00751000\",1706296499999,\"54.47003000\",2,\"0.00751000\",\"54.47003000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.376498"], ["updated_at", "2024-01-26 19:15:07.376498"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ONTUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.23440000\",\"0.23440000\",\"0.23430000\",\"0.23440000\",\"1320.00000000\",1706296499999,\"309.38730000\",7,\"1170.00000000\",\"274.22730000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.397333"], ["updated_at", "2024-01-26 19:15:07.397333"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZRXUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.35890000\",\"0.35980000\",\"0.35840000\",\"0.35980000\",\"88187.00000000\",1706296499999,\"31659.56510000\",158,\"54180.00000000\",\"19457.20350000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.425847"], ["updated_at", "2024-01-26 19:15:07.425847"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "WAVESUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"2.23600000\",\"2.23800000\",\"2.23500000\",\"2.23700000\",\"323.63000000\",1706296499999,\"723.78220000\",8,\"202.13000000\",\"451.98670000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.448397"], ["updated_at", "2024-01-26 19:15:07.448397"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOGEUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.08012000\",\"0.08013000\",\"0.07978000\",\"0.07987000\",\"11241205.00000000\",1706296499999,\"898115.39746000\",1454,\"2655011.00000000\",\"212080.48894000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.471794"], ["updated_at", "2024-01-26 19:15:07.471794"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "OMGUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.66000000\",\"0.66100000\",\"0.66000000\",\"0.66000000\",\"1293.10000000\",1706296499999,\"853.76370000\",22,\"1230.80000000\",\"812.64570000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.505727"], ["updated_at", "2024-01-26 19:15:07.505727"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "MKRUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"2056.00000000\",\"2058.00000000\",\"2056.00000000\",\"2058.00000000\",\"1.11580000\",1706296499999,\"2296.04440000\",12,\"0.93800000\",\"1930.27780000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.540650"], ["updated_at", "2024-01-26 19:15:07.540650"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BNBUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"302.10000000\",\"303.00000000\",\"301.80000000\",\"302.90000000\",\"7667.57900000\",1706296499999,\"2318942.53530000\",2662,\"4453.47500000\",\"1347051.28410000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.568222"], ["updated_at", "2024-01-26 19:15:07.568222"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZRXUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.35970000\",\"0.35980000\",\"0.35940000\",\"0.35980000\",\"8807.00000000\",1706296499999,\"3166.85630000\",17,\"7917.00000000\",\"2846.90130000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.593241"], ["updated_at", "2024-01-26 19:15:07.593241"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "WAVESUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"2.24100000\",\"2.24300000\",\"2.23400000\",\"2.23700000\",\"9071.83000000\",1706296499999,\"20299.44518000\",130,\"2245.08000000\",\"5026.10163000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.616325"], ["updated_at", "2024-01-26 19:15:07.616325"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "MKRUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"2057.00000000\",\"2058.00000000\",\"2055.00000000\",\"2058.00000000\",\"24.62590000\",1706296499999,\"50659.22340000\",181,\"10.14860000\",\"20881.24910000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.638269"], ["updated_at", "2024-01-26 19:15:07.638269"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BNBUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"302.50000000\",\"303.00000000\",\"302.30000000\",\"302.90000000\",\"3892.88700000\",1706296499999,\"1178259.22450000\",1175,\"2350.72600000\",\"711573.97690000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.672127"], ["updated_at", "2024-01-26 19:15:07.672127"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BNBUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"302.70000000\",\"303.00000000\",\"302.60000000\",\"302.90000000\",\"1265.44900000\",1706296499999,\"383161.52570000\",472,\"656.74600000\",\"198861.97120000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.709603"], ["updated_at", "2024-01-26 19:15:07.709603"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZRXUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.35950000\",\"0.36200000\",\"0.35840000\",\"0.35980000\",\"363993.00000000\",1706296499999,\"131028.96590000\",640,\"220099.00000000\",\"79281.25000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.736086"], ["updated_at", "2024-01-26 19:15:07.736086"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZRXUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.36040000\",\"0.36040000\",\"0.35840000\",\"0.35980000\",\"182751.00000000\",1706296499999,\"65633.50240000\",354,\"91864.00000000\",\"32994.26750000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.760445"], ["updated_at", "2024-01-26 19:15:07.760445"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "LTCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"67.28000000\",\"67.32000000\",\"67.25000000\",\"67.28000000\",\"514.25400000\",1706296499999,\"34601.66269000\",200,\"244.66000000\",\"16462.74345000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.783894"], ["updated_at", "2024-01-26 19:15:07.783894"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "LTCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"67.28000000\",\"67.31000000\",\"67.26000000\",\"67.28000000\",\"220.97800000\",1706296499999,\"14868.49166000\",105,\"93.18700000\",\"6270.46199000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.806297"], ["updated_at", "2024-01-26 19:15:07.806297"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "WAVESUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"2.23700000\",\"2.23800000\",\"2.23500000\",\"2.23700000\",\"1821.04000000\",1706296499999,\"4073.39719000\",40,\"677.53000000\",\"1515.79256000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.836193"], ["updated_at", "2024-01-26 19:15:07.836193"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "WAVESUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"2.23700000\",\"2.23800000\",\"2.23700000\",\"2.23700000\",\"211.24000000\",1706296499999,\"472.55466000\",5,\"89.74000000\",\"200.75916000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.859843"], ["updated_at", "2024-01-26 19:15:07.859843"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOGEUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.07981000\",\"0.07993000\",\"0.07981000\",\"0.07987000\",\"2012844.00000000\",1706296499999,\"160764.24188000\",308,\"1091947.00000000\",\"87204.12174000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.883196"], ["updated_at", "2024-01-26 19:15:07.883196"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOGEUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.07991000\",\"0.07991000\",\"0.07986000\",\"0.07987000\",\"704687.00000000\",1706296499999,\"56294.09649000\",75,\"80849.00000000\",\"6457.49635000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.907367"], ["updated_at", "2024-01-26 19:15:07.907367"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "OMGUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.66200000\",\"0.66200000\",\"0.65900000\",\"0.66000000\",\"8992.10000000\",1706296499999,\"5942.80560000\",92,\"5897.90000000\",\"3897.73660000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.933864"], ["updated_at", "2024-01-26 19:15:07.933864"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "OMGUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.66000000\",\"0.66000000\",\"0.66000000\",\"0.66000000\",\"62.30000000\",1706296499999,\"41.11800000\",1,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.962374"], ["updated_at", "2024-01-26 19:15:07.962374"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "MKRUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"2057.00000000\",\"2058.00000000\",\"2052.00000000\",\"2058.00000000\",\"132.65460000\",1706296499999,\"272601.87280000\",754,\"41.25390000\",\"84775.08180000\",\"0\"]"], ["created_at", "2024-01-26 19:15:07.987886"], ["updated_at", "2024-01-26 19:15:07.987886"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BNBUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"303.00000000\",\"303.00000000\",\"302.80000000\",\"302.90000000\",\"326.77800000\",1706296499999,\"98972.14270000\",133,\"48.13300000\",\"14581.66950000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.010938"], ["updated_at", "2024-01-26 19:15:08.010938"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "LTCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"67.31000000\",\"67.37000000\",\"67.19000000\",\"67.28000000\",\"1838.06800000\",1706296499999,\"123672.70787000\",667,\"922.87700000\",\"62091.25909000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.035736"], ["updated_at", "2024-01-26 19:15:08.035736"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "LTCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"67.31000000\",\"67.31000000\",\"67.28000000\",\"67.28000000\",\"86.28400000\",1706296499999,\"5805.79736000\",31,\"17.65100000\",\"1187.94948000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.060477"], ["updated_at", "2024-01-26 19:15:08.060477"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DOGEUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.07985000\",\"0.07993000\",\"0.07982000\",\"0.07987000\",\"1639966.00000000\",1706296499999,\"130993.54711000\",202,\"809048.00000000\",\"64617.14355000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.094268"], ["updated_at", "2024-01-26 19:15:08.094268"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "OMGUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.66000000\",\"0.66000000\",\"0.66000000\",\"0.66000000\",\"0.00000000\",1706296499999,\"0.00000000\",0,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.121533"], ["updated_at", "2024-01-26 19:15:08.121533"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (8.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "MKRUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"2056.00000000\",\"2058.00000000\",\"2056.00000000\",\"2058.00000000\",\"1.22620000\",1706296499999,\"2523.05360000\",15,\"1.04550000\",\"2151.32460000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.154006"], ["updated_at", "2024-01-26 19:15:08.154006"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XRPUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.53180000\",\"0.53180000\",\"0.53160000\",\"0.53170000\",\"174854.00000000\",1706296499999,\"92968.42910000\",78,\"49840.00000000\",\"26504.89150000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.184214"], ["updated_at", "2024-01-26 19:15:08.184214"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SXPUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.33210000\",\"0.33220000\",\"0.33170000\",\"0.33220000\",\"7768.10000000\",1706296499999,\"2577.65600000\",28,\"5311.80000000\",\"1762.52751000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.210586"], ["updated_at", "2024-01-26 19:15:08.210586"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOTAUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.24570000\",\"0.24590000\",\"0.24550000\",\"0.24560000\",\"3401.00000000\",1706296499999,\"835.77120000\",8,\"1627.00000000\",\"400.00080000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.242749"], ["updated_at", "2024-01-26 19:15:08.242749"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KAVAUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.71100000\",\"0.71300000\",\"0.70900000\",\"0.71200000\",\"41497.40000000\",1706296499999,\"29495.83980000\",158,\"23013.50000000\",\"16357.10840000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.272728"], ["updated_at", "2024-01-26 19:15:08.272728"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KAVAUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.71200000\",\"0.71200000\",\"0.71200000\",\"0.71200000\",\"2504.40000000\",1706296499999,\"1783.13280000\",7,\"118.00000000\",\"84.01600000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.298441"], ["updated_at", "2024-01-26 19:15:08.298441"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XRPUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.53280000\",\"0.53290000\",\"0.53090000\",\"0.53170000\",\"3122194.00000000\",1706296499999,\"1660047.57610000\",1765,\"1508355.00000000\",\"801920.27530000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.328059"], ["updated_at", "2024-01-26 19:15:08.328059"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SXPUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.33320000\",\"0.33330000\",\"0.33170000\",\"0.33220000\",\"153583.50000000\",1706296499999,\"51052.16019000\",274,\"83082.80000000\",\"27617.75366000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.355248"], ["updated_at", "2024-01-26 19:15:08.355248"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (11.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SXPUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.33210000\",\"0.33220000\",\"0.33170000\",\"0.33220000\",\"9640.70000000\",1706296499999,\"3199.51041000\",35,\"5311.80000000\",\"1762.52751000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.382588"], ["updated_at", "2024-01-26 19:15:08.382588"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (9.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOTAUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.24570000\",\"0.24590000\",\"0.24550000\",\"0.24560000\",\"19644.00000000\",1706296499999,\"4826.88510000\",23,\"14664.00000000\",\"3603.40050000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.425543"], ["updated_at", "2024-01-26 19:15:08.425543"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOSTUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.00848000\",\"0.00849000\",\"0.00848000\",\"0.00849000\",\"94743.00000000\",1706296499999,\"804.06579000\",9,\"64515.00000000\",\"547.73235000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.461109"], ["updated_at", "2024-01-26 19:15:08.461109"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XRPUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.53200000\",\"0.53220000\",\"0.53130000\",\"0.53170000\",\"817353.00000000\",1706296499999,\"434535.40170000\",450,\"434921.00000000\",\"231225.01790000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.489264"], ["updated_at", "2024-01-26 19:15:08.489264"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DASHUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"27.90000000\",\"27.92000000\",\"27.89000000\",\"27.91000000\",\"35.64500000\",1706296499999,\"994.87767000\",17,\"30.97000000\",\"864.41986000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.527287"], ["updated_at", "2024-01-26 19:15:08.527287"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SXPUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.33220000\",\"0.33220000\",\"0.33220000\",\"0.33220000\",\"0.00000000\",1706296499999,\"0.00000000\",0,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.553159"], ["updated_at", "2024-01-26 19:15:08.553159"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOTAUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.24590000\",\"0.24590000\",\"0.24560000\",\"0.24560000\",\"878.00000000\",1706296499999,\"215.88940000\",2,\"842.00000000\",\"207.04780000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.586248"], ["updated_at", "2024-01-26 19:15:08.586248"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOSTUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.00848000\",\"0.00849000\",\"0.00846000\",\"0.00849000\",\"250485.00000000\",1706296499999,\"2123.64831000\",33,\"131951.00000000\",\"1119.46863000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.614956"], ["updated_at", "2024-01-26 19:15:08.614956"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOSTUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.00848000\",\"0.00849000\",\"0.00848000\",\"0.00849000\",\"94743.00000000\",1706296499999,\"804.06579000\",9,\"64515.00000000\",\"547.73235000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.643698"], ["updated_at", "2024-01-26 19:15:08.643698"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XRPUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.53160000\",\"0.53180000\",\"0.53130000\",\"0.53170000\",\"546863.00000000\",1706296499999,\"290706.69780000\",265,\"279131.00000000\",\"148392.76960000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.667996"], ["updated_at", "2024-01-26 19:15:08.667996"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DASHUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"27.94000000\",\"27.96000000\",\"27.85000000\",\"27.91000000\",\"476.34100000\",1706296499999,\"13292.82719000\",194,\"218.92600000\",\"6110.19994000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.691874"], ["updated_at", "2024-01-26 19:15:08.691874"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DASHUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"27.90000000\",\"27.92000000\",\"27.89000000\",\"27.91000000\",\"206.00800000\",1706296499999,\"5748.18709000\",68,\"127.45700000\",\"3556.91121000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.716157"], ["updated_at", "2024-01-26 19:15:08.716157"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "DASHUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"27.92000000\",\"27.92000000\",\"27.91000000\",\"27.91000000\",\"3.96100000\",1706296499999,\"110.55509000\",2,\"0.35800000\",\"9.99536000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.746183"], ["updated_at", "2024-01-26 19:15:08.746183"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOTAUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.24580000\",\"0.24600000\",\"0.24510000\",\"0.24560000\",\"145495.00000000\",1706296499999,\"35727.96150000\",152,\"67117.00000000\",\"16485.08180000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.774534"], ["updated_at", "2024-01-26 19:15:08.774534"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KAVAUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.71000000\",\"0.71300000\",\"0.71000000\",\"0.71200000\",\"22395.00000000\",1706296499999,\"15935.50790000\",78,\"12372.40000000\",\"8805.07200000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.799156"], ["updated_at", "2024-01-26 19:15:08.799156"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KAVAUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.71000000\",\"0.71300000\",\"0.71000000\",\"0.71200000\",\"21439.80000000\",1706296499999,\"15257.07390000\",69,\"12130.40000000\",\"8633.01000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.823085"], ["updated_at", "2024-01-26 19:15:08.823085"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "IOSTUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.00849000\",\"0.00849000\",\"0.00849000\",\"0.00849000\",\"600.00000000\",1706296499999,\"5.09400000\",1,\"600.00000000\",\"5.09400000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.855128"], ["updated_at", "2024-01-26 19:15:08.855128"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BATUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.22470000\",\"0.22470000\",\"0.22410000\",\"0.22450000\",\"35027.00000000\",1706296499999,\"7859.72370000\",70,\"16215.00000000\",\"3638.72990000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.878974"], ["updated_at", "2024-01-26 19:15:08.878974"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BCHUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"241.80000000\",\"241.80000000\",\"241.70000000\",\"241.70000000\",\"53.54300000\",1706296499999,\"12946.33340000\",14,\"0.12800000\",\"30.95040000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.901124"], ["updated_at", "2024-01-26 19:15:08.901124"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"42034.94000000\",\"42067.44000000\",\"42017.01000000\",\"42061.98000000\",\"84.34399000\",1706296499999,\"3546095.15593950\",4460,\"30.88723000\",\"1298640.98873600\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.929452"], ["updated_at", "2024-01-26 19:15:08.929452"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (22.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BATUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.22420000\",\"0.22450000\",\"0.22420000\",\"0.22450000\",\"1589.00000000\",1706296499999,\"356.49140000\",6,\"1589.00000000\",\"356.49140000\",\"0\"]"], ["created_at", "2024-01-26 19:15:08.959144"], ["updated_at", "2024-01-26 19:15:08.959144"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BCHUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"242.00000000\",\"242.10000000\",\"241.50000000\",\"241.70000000\",\"289.97800000\",1706296499999,\"70111.18110000\",194,\"78.07800000\",\"18882.67030000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.005881"], ["updated_at", "2024-01-26 19:15:09.005881"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"42105.00000000\",\"42116.00000000\",\"41981.01000000\",\"42061.98000000\",\"521.07443000\",1706296499999,\"21906170.27506440\",18423,\"195.29083000\",\"8210332.78202750\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.035468"], ["updated_at", "2024-01-26 19:15:09.035468"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"42025.01000000\",\"42067.44000000\",\"42017.01000000\",\"42061.98000000\",\"139.48778000\",1706296499999,\"5864156.53629030\",7148,\"60.57055000\",\"2546358.96118490\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.069173"], ["updated_at", "2024-01-26 19:15:09.069173"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EGLDUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"51.89000000\",\"51.93000000\",\"51.82000000\",\"51.83000000\",\"188.16000000\",1706296499999,\"9763.39280000\",101,\"84.12000000\",\"4365.57520000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.130950"], ["updated_at", "2024-01-26 19:15:09.130950"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EGLDUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"51.90000000\",\"51.93000000\",\"51.83000000\",\"51.83000000\",\"104.65000000\",1706296499999,\"5430.17560000\",38,\"31.11000000\",\"1614.84470000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.154034"], ["updated_at", "2024-01-26 19:15:09.154034"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BATUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.22430000\",\"0.22450000\",\"0.22420000\",\"0.22450000\",\"15241.00000000\",1706296499999,\"3418.99330000\",28,\"8498.00000000\",\"1906.55560000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.175833"], ["updated_at", "2024-01-26 19:15:09.175833"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BCHUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"241.70000000\",\"241.80000000\",\"241.70000000\",\"241.70000000\",\"100.12800000\",1706296499999,\"24206.47350000\",46,\"11.97200000\",\"2894.19080000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.201560"], ["updated_at", "2024-01-26 19:15:09.201560"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (23.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BCHUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"241.70000000\",\"241.80000000\",\"241.70000000\",\"241.70000000\",\"57.26500000\",1706296499999,\"13845.97940000\",24,\"3.42400000\",\"827.63220000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.251678"], ["updated_at", "2024-01-26 19:15:09.251678"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"42064.98000000\",\"42067.44000000\",\"42052.45000000\",\"42061.98000000\",\"30.55920000\",1706296499999,\"1285412.37221480\",1711,\"11.30655000\",\"475570.11535820\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.274568"], ["updated_at", "2024-01-26 19:15:09.274568"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EGLDUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"51.96000000\",\"52.03000000\",\"51.73000000\",\"51.83000000\",\"990.59000000\",1706296499999,\"51386.14630000\",395,\"266.48000000\",\"13826.11360000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.298880"], ["updated_at", "2024-01-26 19:15:09.298880"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "EGLDUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"51.88000000\",\"51.93000000\",\"51.82000000\",\"51.83000000\",\"126.78000000\",1706296499999,\"6577.71830000\",57,\"41.43000000\",\"2149.85960000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.322319"], ["updated_at", "2024-01-26 19:15:09.322319"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BATUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.22450000\",\"0.22450000\",\"0.22450000\",\"0.22450000\",\"680.00000000\",1706296499999,\"152.66000000\",2,\"680.00000000\",\"152.66000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.344587"], ["updated_at", "2024-01-26 19:15:09.344587"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZILUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.02045000\",\"0.02045000\",\"0.02038000\",\"0.02040000\",\"737756.90000000\",1706296499999,\"15060.23986500\",152,\"442256.00000000\",\"9029.43156600\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.378561"], ["updated_at", "2024-01-26 19:15:09.378561"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZILUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.02041000\",\"0.02041000\",\"0.02040000\",\"0.02040000\",\"140958.50000000\",1706296499999,\"2875.82904500\",24,\"65127.20000000\",\"1328.63737800\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.403034"], ["updated_at", "2024-01-26 19:15:09.403034"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SOLUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"93.16000000\",\"93.19000000\",\"92.65000000\",\"92.80000000\",\"49853.98000000\",1706296499999,\"4627942.09080000\",4816,\"21339.29000000\",\"1981222.58600000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.427699"], ["updated_at", "2024-01-26 19:15:09.427699"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SOLUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"92.83000000\",\"92.89000000\",\"92.77000000\",\"92.80000000\",\"1175.68000000\",1706296499999,\"109130.40280000\",199,\"573.54000000\",\"53233.98240000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.455806"], ["updated_at", "2024-01-26 19:15:09.455806"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XTZUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.96900000\",\"0.97000000\",\"0.96900000\",\"0.97000000\",\"1436.30000000\",1706296499999,\"1392.92500000\",25,\"1150.30000000\",\"1115.79100000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.483433"], ["updated_at", "2024-01-26 19:15:09.483433"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "QTUMUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"2.91500000\",\"2.91600000\",\"2.91200000\",\"2.91400000\",\"176.80000000\",1706296499999,\"515.32700000\",27,\"141.60000000\",\"412.74100000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.509307"], ["updated_at", "2024-01-26 19:15:09.509307"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "QTUMUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"2.91500000\",\"2.91600000\",\"2.91400000\",\"2.91400000\",\"62.40000000\",1706296499999,\"181.90870000\",12,\"49.20000000\",\"143.43070000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.537448"], ["updated_at", "2024-01-26 19:15:09.537448"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RLCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"2.17900000\",\"2.19200000\",\"2.17200000\",\"2.18300000\",\"22420.80000000\",1706296499999,\"48895.04080000\",197,\"10483.60000000\",\"22869.55940000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.569438"], ["updated_at", "2024-01-26 19:15:09.569438"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RLCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"2.18300000\",\"2.18300000\",\"2.18300000\",\"2.18300000\",\"840.00000000\",1706296499999,\"1833.72000000\",7,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.599985"], ["updated_at", "2024-01-26 19:15:09.599985"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "THETAUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.98500000\",\"0.98500000\",\"0.98200000\",\"0.98200000\",\"19421.20000000\",1706296499999,\"19081.28830000\",106,\"4873.70000000\",\"4789.86520000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.630648"], ["updated_at", "2024-01-26 19:15:09.630648"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KNCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.59630000\",\"0.59660000\",\"0.59500000\",\"0.59660000\",\"3425.70000000\",1706296499999,\"2041.13103000\",17,\"1619.20000000\",\"965.73697000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.660333"], ["updated_at", "2024-01-26 19:15:09.660333"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KNCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.59650000\",\"0.59660000\",\"0.59650000\",\"0.59660000\",\"1083.70000000\",1706296499999,\"646.52555000\",5,\"1083.70000000\",\"646.52555000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.692685"], ["updated_at", "2024-01-26 19:15:09.692685"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZILUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.02041000\",\"0.02041000\",\"0.02040000\",\"0.02040000\",\"72845.50000000\",1706296499999,\"1486.26880200\",13,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.727375"], ["updated_at", "2024-01-26 19:15:09.727375"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XTZUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.97100000\",\"0.97100000\",\"0.96700000\",\"0.97000000\",\"14947.70000000\",1706296499999,\"14482.16070000\",104,\"8064.70000000\",\"7814.81180000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.755918"], ["updated_at", "2024-01-26 19:15:09.755918"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "QTUMUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"2.91900000\",\"2.91900000\",\"2.90900000\",\"2.91400000\",\"2669.60000000\",1706296499999,\"7780.28160000\",153,\"923.30000000\",\"2690.33550000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.783337"], ["updated_at", "2024-01-26 19:15:09.783337"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "QTUMUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"2.91400000\",\"2.91600000\",\"2.91200000\",\"2.91400000\",\"215.00000000\",1706296499999,\"626.63600000\",36,\"166.60000000\",\"485.58080000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.823817"], ["updated_at", "2024-01-26 19:15:09.823817"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RLCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"2.19200000\",\"2.19200000\",\"2.18200000\",\"2.18300000\",\"2640.00000000\",1706296499999,\"5771.46250000\",24,\"270.80000000\",\"592.70440000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.857133"], ["updated_at", "2024-01-26 19:15:09.857133"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "RLCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"2.18400000\",\"2.18400000\",\"2.18200000\",\"2.18300000\",\"934.00000000\",1706296499999,\"2038.84200000\",9,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.884749"], ["updated_at", "2024-01-26 19:15:09.884749"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZILUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.02041000\",\"0.02042000\",\"0.02040000\",\"0.02040000\",\"295984.30000000\",1706296499999,\"6039.98311500\",57,\"175596.70000000\",\"3583.39736500\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.910975"], ["updated_at", "2024-01-26 19:15:09.910975"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SOLUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"92.73000000\",\"92.89000000\",\"92.70000000\",\"92.80000000\",\"14571.38000000\",1706296499999,\"1352193.94290000\",1298,\"9648.04000000\",\"895430.27090000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.942505"], ["updated_at", "2024-01-26 19:15:09.942505"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XTZUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.97000000\",\"0.97000000\",\"0.96900000\",\"0.97000000\",\"925.50000000\",1706296499999,\"897.70690000\",11,\"897.40000000\",\"870.47800000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.972026"], ["updated_at", "2024-01-26 19:15:09.972026"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "THETAUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.98300000\",\"0.98300000\",\"0.98200000\",\"0.98200000\",\"1265.90000000\",1706296499999,\"1243.48230000\",18,\"561.50000000\",\"551.76150000\",\"0\"]"], ["created_at", "2024-01-26 19:15:09.999936"], ["updated_at", "2024-01-26 19:15:09.999936"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "THETAUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.98300000\",\"0.98300000\",\"0.98200000\",\"0.98200000\",\"656.00000000\",1706296499999,\"644.21460000\",8,\"215.60000000\",\"211.74180000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.024382"], ["updated_at", "2024-01-26 19:15:10.024382"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KNCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.59620000\",\"0.59660000\",\"0.59620000\",\"0.59660000\",\"1573.80000000\",1706296499999,\"938.73343000\",8,\"1135.00000000\",\"677.12087000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.057632"], ["updated_at", "2024-01-26 19:15:10.057632"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "KNCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.59620000\",\"0.59660000\",\"0.59620000\",\"0.59660000\",\"1573.80000000\",1706296499999,\"938.73343000\",8,\"1135.00000000\",\"677.12087000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.096754"], ["updated_at", "2024-01-26 19:15:10.096754"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SOLUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"92.80000000\",\"92.89000000\",\"92.70000000\",\"92.80000000\",\"4636.83000000\",1706296499999,\"430145.28510000\",619,\"1469.52000000\",\"136364.79550000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.131060"], ["updated_at", "2024-01-26 19:15:10.131060"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (11.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XTZUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.97000000\",\"0.97000000\",\"0.97000000\",\"0.97000000\",\"9.00000000\",1706296499999,\"8.73000000\",1,\"9.00000000\",\"8.73000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.165704"], ["updated_at", "2024-01-26 19:15:10.165704"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (10.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "THETAUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.98200000\",\"0.98200000\",\"0.98200000\",\"0.98200000\",\"312.60000000\",1706296499999,\"306.97320000\",3,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.205005"], ["updated_at", "2024-01-26 19:15:10.205005"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SUSHIUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"1.10100000\",\"1.10200000\",\"1.10100000\",\"1.10100000\",\"13600.70000000\",1706296499999,\"14974.57070000\",41,\"9319.00000000\",\"10260.41900000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.238646"], ["updated_at", "2024-01-26 19:15:10.238646"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SUSHIUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"1.10100000\",\"1.10200000\",\"1.10100000\",\"1.10100000\",\"6046.60000000\",1706296499999,\"6657.32510000\",22,\"5708.90000000\",\"6285.51740000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.264725"], ["updated_at", "2024-01-26 19:15:10.264725"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "COMPUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"54.24000000\",\"54.24000000\",\"54.16000000\",\"54.21000000\",\"253.68300000\",1706296499999,\"13747.95429000\",93,\"91.32300000\",\"4949.61330000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.290955"], ["updated_at", "2024-01-26 19:15:10.290955"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BANDUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"1.66200000\",\"1.66400000\",\"1.65800000\",\"1.66300000\",\"4213.40000000\",1706296499999,\"7003.04110000\",93,\"2775.40000000\",\"4611.38270000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.330628"], ["updated_at", "2024-01-26 19:15:10.330628"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (9.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BANDUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"1.66400000\",\"1.66400000\",\"1.66300000\",\"1.66300000\",\"302.00000000\",1706296499999,\"502.25920000\",8,\"33.10000000\",\"55.04530000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.366431"], ["updated_at", "2024-01-26 19:15:10.366431"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "COMPUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"54.26000000\",\"54.27000000\",\"54.16000000\",\"54.21000000\",\"270.71900000\",1706296499999,\"14671.80466000\",122,\"95.95900000\",\"5201.05420000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.406236"], ["updated_at", "2024-01-26 19:15:10.406236"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XLMUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"0.11560000\",\"0.11590000\",\"0.11560000\",\"0.11590000\",\"101274.00000000\",1706296499999,\"11720.14870000\",41,\"99882.00000000\",\"11559.10870000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.438796"], ["updated_at", "2024-01-26 19:15:10.438796"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SUSHIUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"1.10200000\",\"1.10200000\",\"1.10100000\",\"1.10100000\",\"14386.00000000\",1706296499999,\"15839.94310000\",49,\"9504.20000000\",\"10464.50940000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.473164"], ["updated_at", "2024-01-26 19:15:10.473164"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "COMPUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"54.22000000\",\"54.22000000\",\"54.20000000\",\"54.21000000\",\"81.21800000\",1706296499999,\"4403.16184000\",22,\"56.73700000\",\"3075.90427000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.506955"], ["updated_at", "2024-01-26 19:15:10.506955"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XLMUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.11560000\",\"0.11590000\",\"0.11550000\",\"0.11590000\",\"227040.00000000\",1706296499999,\"26254.23900000\",123,\"142330.00000000\",\"16466.38150000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.536488"], ["updated_at", "2024-01-26 19:15:10.536488"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (7.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XLMUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"0.11570000\",\"0.11590000\",\"0.11570000\",\"0.11590000\",\"100546.00000000\",1706296499999,\"11635.93350000\",38,\"99298.00000000\",\"11491.53990000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.567469"], ["updated_at", "2024-01-26 19:15:10.567469"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (6.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BANDUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706296200000,\"1.66200000\",\"1.66400000\",\"1.66100000\",\"1.66300000\",\"1332.60000000\",1706296499999,\"2215.90440000\",38,\"819.20000000\",\"1362.15450000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.599155"], ["updated_at", "2024-01-26 19:15:10.599155"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "SUSHIUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"1.10400000\",\"1.10400000\",\"1.10000000\",\"1.10100000\",\"24398.60000000\",1706296499999,\"26873.68590000\",101,\"15390.50000000\",\"16952.52780000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.626925"], ["updated_at", "2024-01-26 19:15:10.626925"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "COMPUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"54.30000000\",\"54.33000000\",\"54.13000000\",\"54.21000000\",\"551.51300000\",1706296499999,\"29900.59055000\",312,\"195.40300000\",\"10593.85119000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.655199"], ["updated_at", "2024-01-26 19:15:10.655199"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "XLMUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.11580000\",\"0.11590000\",\"0.11570000\",\"0.11590000\",\"15525.00000000\",1706296499999,\"1797.79850000\",14,\"15103.00000000\",\"1748.97310000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.682390"], ["updated_at", "2024-01-26 19:15:10.682390"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BANDUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"1.66300000\",\"1.66400000\",\"1.66300000\",\"1.66300000\",\"844.70000000\",1706296499999,\"1404.90170000\",29,\"395.10000000\",\"657.18370000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.711841"], ["updated_at", "2024-01-26 19:15:10.711841"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (3.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ALGOUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706295600000,\"0.16850000\",\"0.16850000\",\"0.16790000\",\"0.16800000\",\"483417.00000000\",1706296499999,\"81312.47600000\",364,\"318094.00000000\",\"53497.06510000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.742198"], ["updated_at", "2024-01-26 19:15:10.742198"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ZECUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706296320000,\"22.59000000\",\"22.59000000\",\"22.59000000\",\"22.59000000\",\"2.38100000\",1706296499999,\"53.78679000\",3,\"2.38100000\",\"53.78679000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.786328"], ["updated_at", "2024-01-26 19:15:10.786328"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ICXUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.22580000\",\"0.22580000\",\"0.22580000\",\"0.22580000\",\"27.00000000\",1706296499999,\"6.09660000\",1,\"0.00000000\",\"0.00000000\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.815240"], ["updated_at", "2024-01-26 19:15:10.815240"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "TRXUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706296440000,\"0.11494000\",\"0.11494000\",\"0.11493000\",\"0.11494000\",\"29846.10000000\",1706296499999,\"3430.43209400\",52,\"21982.10000000\",\"2526.62257400\",\"0\"]"], ["created_at", "2024-01-26 19:15:10.842084"], ["updated_at", "2024-01-26 19:15:10.842084"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:37:in `block (4 levels) in create_websocket_client'

@@ -22,6 +22,7 @@ namespace :klines_websocket do
 
             ws.on :message do |msg|
           
+              $logger.info(msg.data)
                 data = JSON.parse(msg.data)
                 if (data['data'] || {})['k']['x']
                   kline_data = data['data']['k']
@@ -33,7 +34,7 @@ namespace :klines_websocket do
                   transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
                   
                   result = [symbol, interval, transformed_data]
-                  $logger.info("Received message: #{Time.now.inspect}: #{result.inspect}")
+                  # $logger.info("Received message: #{Time.now.inspect}: #{result.inspect}")
                   Kline.create(symbol: symbol.upcase(), interval: interval, content: transformed_data)
                   
                 end
