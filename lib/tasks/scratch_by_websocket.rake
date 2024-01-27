@@ -3,6 +3,7 @@ namespace :klines_websocket do
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
     $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $klines_data = []
 
       def create_websocket_client(symbols, intervals)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
@@ -41,14 +42,12 @@ namespace :klines_websocket do
 
                 all_records.each do |record| 
                   if (((timestamp.to_i / 1000) / 2.round * 2) - 2) == (((record['E'].to_i / 1000)/ 2.round * 2)) && end_timestamp != record['k']['T']
-
                     symbol = record['k']['s']
                     interval = record['k']['i']
                     records = record['k']
                     transformed_record = [records['t'], records['o'], records['h'], records['l'], records['c'], records['v'], records['T'], records['q'], records['n'], records['V'], records['Q'], "0"]
-                    $logger.info("open data = #{record}")
-
-                    # Kline.create(symbol: symbol, interval: interval, content: transformed_record)
+                    # $logger.info("open data = #{transformed_record}")
+                    $klines_data << [symbol, interval, transformed_record]
                   end
                 end
                 all_records.clear
@@ -66,9 +65,9 @@ namespace :klines_websocket do
 
                   get_other_data(all_records, raw_records, timestamp, end_timestamp)
 
-                   $logger.info("closed data = #{data}")
-                 
-                  # Kline.create(symbol: symbol, interval: interval, content: transformed_data) 
+                   #$logger.info("closed data = #{transformed_data}")
+
+                   $klines_data << [symbol, interval, transformed_data]
                 end
             end
         
@@ -110,13 +109,14 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[26..27]
-        p symbols
+        symbols = symbols
+        p symbols.count
 
         create_websocket_client(symbols, intervals)
 
         loop do
           sleep 60
+          $logger.info($klines_data.count)
          
         end
 
