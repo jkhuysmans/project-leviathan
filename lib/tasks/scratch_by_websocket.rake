@@ -24,20 +24,27 @@ namespace :klines_websocket do
 
             ws.on :message do |msg|
 
+              $logger.info(msg.data)
+
               data = JSON.parse(msg.data)
 
               raw_records = JSON.parse(msg.data)
               records = raw_records['k']
               transformed_records = [records['t'], records['o'], records['h'], records['l'], records['c'], records['v'], records['T'], records['q'], records['n'], records['V'], records['Q'], "0"]
-              all_records << transformed_records
+              all_records << raw_records
 
         
               def get_other_data(all_records, raw_records, timestamp)
+                # $logger.info("Record to compare to: #{((timestamp.to_i / 1000) / 2.round * 2) }")
+                # $logger.info("Record to compare to: #{timestamp.to_i}")
+                # $logger.info((timestamp.to_i / 1000))
+
                 all_records.each do |record| 
-                  if record[0] == timestamp  
-                    $logger.info(record)
+                  if (((timestamp.to_i / 1000) / 2.round * 2) - 2) == (((record['E'].to_i / 1000)/ 2.round * 2))
+                    #$logger.info(record)
                   end
                 end
+                all_records.clear
               end
               
                 if (data['k'] || {})['x']
@@ -45,11 +52,9 @@ namespace :klines_websocket do
                   
                   symbol = data['k']['s']
                   interval = data['k']['i']
-                  timestamp = data['k']['t']
+                  timestamp = data['E']
 
                   transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
-
-                  # $logger.info("Timestamp A: #{timestamp}")
 
                   get_other_data(all_records, raw_records, timestamp)
 
@@ -96,9 +101,9 @@ namespace :klines_websocket do
           all_symbols
         end
 
-        intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
+        intervals = ["1m", "3m", "5m", "15m"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[0..11]
+        symbols = symbols[0..0]
 
         create_websocket_client(symbols, intervals)
 
