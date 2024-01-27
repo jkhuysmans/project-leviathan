@@ -2,12 +2,11 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(STDOUT)
+    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
 
-    raw_records = []
-
-      def create_websocket_client(symbols, intervals, raw_records)
+      def create_websocket_client(symbols, intervals)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
+    
         $logger.info("Number of streams being listened to: #{streams.count}")
         
         threads = []
@@ -15,27 +14,48 @@ namespace :klines_websocket do
         streams.each_slice(1024) do |stream_slice|
           threads << Thread.new do
 
+            batches = streams.each_slice(195).to_a
 
             base_url = "wss://stream.binance.com:9443/ws"
         
           WebSocket::Client::Simple.connect base_url do |ws|
 
-            ws.on :message do |msg|
-          
-              $logger.info("Received message: #{msg.data}")
-                data = JSON.parse(msg.data)
-                if (data['data'] || {})['k']['x']
-                  kline_data = data['data']['k']
+            all_records = []
 
-                  stream_name = data['stream']
-                  symbol, interval_info = stream_name.split('@')
-                  interval = interval_info.split('_').last
+            ws.on :message do |msg|
+
+              data = JSON.parse(msg.data)
+
+              raw_records = JSON.parse(msg.data)
+              records = raw_records['k']
+              transformed_records = [records['t'], records['o'], records['h'], records['l'], records['c'], records['v'], records['T'], records['q'], records['n'], records['V'], records['Q'], "0"]
+              all_records << transformed_records
+
+        
+              def get_other_data(all_records, raw_records, timestamp)
+                all_records.each do |record| 
+                  if record[0] == timestamp  
+                    $logger.info(record)
+                  end
+                end
+              end
+              
+                if (data['k'] || {})['x']
+                  kline_data = data['k']
+                  
+                  symbol = data['k']['s']
+                  interval = data['k']['i']
+                  timestamp = data['k']['t']
 
                   transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
-                  
-                  result = [symbol, interval, transformed_data]
-                  # $logger.info("Received message: #{Time.now.inspect}: #{result.inspect}")
-                  Kline.create(symbol: symbol.upcase(), interval: interval, content: transformed_data)
+
+                  # $logger.info("Timestamp A: #{timestamp}")
+
+                  get_other_data(all_records, raw_records, timestamp)
+
+                  # $logger.info("transformed data = #{transformed_data}")
+                 
+                  # Kline.create(symbol: symbol, interval: interval, content: transformed_data)
                   
                 end
             end
@@ -43,13 +63,17 @@ namespace :klines_websocket do
             ws.on :open do
               $logger.info("Subscribed to #{base_url}")
 
-              subscribe_request = {
-                "method": "SUBSCRIBE",
-                "params": streams,
-                "id": 1
-              }
-              $logger.info("Subscribe request: #{subscribe_request.to_json}")
-              ws.send(subscribe_request.to_json)
+              threads = []
+              batches.each_with_index do |batch, index|
+                  subscribe_request = {
+                  "method": "SUBSCRIBE",
+                  "params": batch,
+                  "id": index + 1
+                  }
+                  $logger.info("Subscribe request for batch #{index + 1}: #{subscribe_request.to_json}")
+                  ws.send(subscribe_request.to_json)
+                end
+             
             end
         
             ws.on :close do |e|
@@ -74,9 +98,9 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[0..13]
+        symbols = symbols[0..11]
 
-        create_websocket_client(symbols, intervals, raw_records)
+        create_websocket_client(symbols, intervals)
 
         loop do
           sleep 60
