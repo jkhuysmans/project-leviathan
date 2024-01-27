@@ -24,7 +24,7 @@ namespace :klines_websocket do
 
             ws.on :message do |msg|
 
-              $logger.info(msg.data)
+              # $logger.info(msg.data)
 
               data = JSON.parse(msg.data)
 
@@ -34,14 +34,21 @@ namespace :klines_websocket do
               all_records << raw_records
 
         
-              def get_other_data(all_records, raw_records, timestamp)
+              def get_other_data(all_records, raw_records, timestamp, end_timestamp)
                 # $logger.info("Record to compare to: #{((timestamp.to_i / 1000) / 2.round * 2) }")
                 # $logger.info("Record to compare to: #{timestamp.to_i}")
                 # $logger.info((timestamp.to_i / 1000))
 
                 all_records.each do |record| 
-                  if (((timestamp.to_i / 1000) / 2.round * 2) - 2) == (((record['E'].to_i / 1000)/ 2.round * 2))
-                    #$logger.info(record)
+                  if (((timestamp.to_i / 1000) / 2.round * 2) - 2) == (((record['E'].to_i / 1000)/ 2.round * 2)) && end_timestamp != record['k']['T']
+
+                    symbol = record['k']['s']
+                    interval = record['k']['i']
+                    records = record['k']
+                    transformed_record = [records['t'], records['o'], records['h'], records['l'], records['c'], records['v'], records['T'], records['q'], records['n'], records['V'], records['Q'], "0"]
+                    $logger.info("open data = #{record}")
+
+                    # Kline.create(symbol: symbol, interval: interval, content: transformed_record)
                   end
                 end
                 all_records.clear
@@ -53,15 +60,15 @@ namespace :klines_websocket do
                   symbol = data['k']['s']
                   interval = data['k']['i']
                   timestamp = data['E']
+                  end_timestamp = data['k']['T']
 
                   transformed_data = [kline_data['t'], kline_data['o'], kline_data['h'], kline_data['l'], kline_data['c'], kline_data['v'], kline_data['T'], kline_data['q'], kline_data['n'], kline_data['V'], kline_data['Q'], "0"]
 
-                  get_other_data(all_records, raw_records, timestamp)
+                  get_other_data(all_records, raw_records, timestamp, end_timestamp)
 
-                  # $logger.info("transformed data = #{transformed_data}")
+                   $logger.info("closed data = #{data}")
                  
-                  # Kline.create(symbol: symbol, interval: interval, content: transformed_data)
-                  
+                  # Kline.create(symbol: symbol, interval: interval, content: transformed_data) 
                 end
             end
         
@@ -101,9 +108,10 @@ namespace :klines_websocket do
           all_symbols
         end
 
-        intervals = ["1m", "3m", "5m", "15m"]
+        intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[0..0]
+        symbols = symbols[26..27]
+        p symbols
 
         create_websocket_client(symbols, intervals)
 

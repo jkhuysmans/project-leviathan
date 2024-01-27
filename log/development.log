@@ -3541,3 +3541,213 @@
   ↳ lib/tasks/scratch_by_websocket.rake:48:in `block (4 levels) in create_websocket_client'
   [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
   ↳ lib/tasks/scratch_by_websocket.rake:48:in `block (4 levels) in create_websocket_client'
+Started GET "/kline?symbol=BTCUSDT&interval=1m&limit=1500" for ::1 at 2024-01-27 19:24:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ApiDataController#kline as JSON
+  Parameters: {"symbol"=>"BTCUSDT", "interval"=>"1m", "limit"=>"1500"}
+  [1m[36mKline Pluck (26.4ms)[0m  [1m[34mSELECT "klines"."content" FROM "klines" WHERE "klines"."symbol" = $1 AND "klines"."interval" = $2 AND ((content->>0)::bigint >= 1706293488000) AND ((content->>0)::bigint <= 1706379888000) GROUP BY "klines"."content" ORDER BY (content->>0)::bigint DESC LIMIT $3[0m  [["symbol", "BTCUSDT"], ["interval", "1m"], ["LIMIT", 1500]]
+  ↳ app/controllers/api/v1/api_data_controller.rb:29:in `kline'
+Completed 200 OK in 197ms (Views: 1.0ms | ActiveRecord: 78.3ms | Allocations: 13521)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-01-27 19:24:49 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (30.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41795.78000000\",\"1271.15907000\",1706385599999,\"53159246.72618850\",74247,\"561.42279000\",\"23479807.70970360\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.489722"], ["updated_at", "2024-01-27 18:26:01.489722"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (6.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "8h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41795.78000000\",\"1271.15907000\",1706399999999,\"53159246.72618850\",74247,\"561.42279000\",\"23479807.70970360\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.547871"], ["updated_at", "2024-01-27 18:26:01.547871"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (11.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706379840000,\"41795.40000000\",\"41798.38000000\",\"41795.40000000\",\"41795.78000000\",\"12.73221000\",1706380019999,\"532163.23966170\",678,\"4.30923000\",\"180107.76343910\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.568082"], ["updated_at", "2024-01-27 18:26:01.568082"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (4.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "6h"], ["content", "[1706378400000,\"41779.28000000\",\"41800.00000000\",\"41745.26000000\",\"41795.78000000\",\"213.74149000\",1706399999999,\"8928297.59582910\",19288,\"80.12817000\",\"3347023.50358630\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.589842"], ["updated_at", "2024-01-27 18:26:01.589842"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (7.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "15m"], ["content", "[1706379300000,\"41783.02000000\",\"41800.00000000\",\"41769.13000000\",\"41795.78000000\",\"69.36829000\",1706380199999,\"2898927.23951160\",5819,\"28.25002000\",\"1180532.30019920\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.604913"], ["updated_at", "2024-01-27 18:26:01.604913"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (7.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "5m"], ["content", "[1706379900000,\"41795.78000000\",\"41795.79000000\",\"41795.78000000\",\"41795.78000000\",\"2.31505000\",1706380199999,\"96759.32295900\",252,\"0.24700000\",\"10323.56013000\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.625914"], ["updated_at", "2024-01-27 18:26:01.625914"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (7.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "1M"], ["content", "[1704067200000,\"42283.58000000\",\"48969.48000000\",\"38555.00000000\",\"41795.78000000\",\"1263142.86447000\",1706745599999,\"54821974674.34007260\",47335842,\"636901.80033000\",\"27650418286.97130420\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.642073"], ["updated_at", "2024-01-27 18:26:01.642073"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (12.7ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41795.78000000\",\"1271.15907000\",1706385599999,\"53159246.72618850\",74247,\"561.42279000\",\"23479807.70970360\",\"0\"]"], ["created_at", "2024-01-27 18:26:01.672400"], ["updated_at", "2024-01-27 18:26:01.672400"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+Started GET "/kline?symbol=BTCUSDT&interval=1m&limit=1500" for ::1 at 2024-01-27 19:26:18 +0100
+Processing by Api::V1::ApiDataController#kline as JSON
+  Parameters: {"symbol"=>"BTCUSDT", "interval"=>"1m", "limit"=>"1500"}
+  [1m[36mKline Pluck (8.6ms)[0m  [1m[34mSELECT "klines"."content" FROM "klines" WHERE "klines"."symbol" = $1 AND "klines"."interval" = $2 AND ((content->>0)::bigint >= 1706293578000) AND ((content->>0)::bigint <= 1706379978000) GROUP BY "klines"."content" ORDER BY (content->>0)::bigint DESC LIMIT $3[0m  [["symbol", "BTCUSDT"], ["interval", "1m"], ["LIMIT", 1500]]
+  ↳ app/controllers/api/v1/api_data_controller.rb:29:in `kline'
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 8.6ms | Allocations: 912)
+
+
+  [1m[36mKline Count (221.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mKline Load (6.5ms)[0m  [1m[34mSELECT "klines".* FROM "klines" ORDER BY "klines"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (13.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2268.30000000\",\"33894.14360000\",1706399999999,\"76884529.13725100\",106677,\"18073.96260000\",\"40999372.00264800\",\"0\"]"], ["created_at", "2024-01-27 18:27:00.165029"], ["updated_at", "2024-01-27 18:27:00.165029"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (9.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "1M"], ["content", "[1704067200000,\"2281.87000000\",\"2717.32000000\",\"2100.00000000\",\"2268.30000000\",\"11903899.80530000\",1706745599999,\"28539486961.36944500\",25331143,\"5950980.45570000\",\"14267120337.74842500\",\"0\"]"], ["created_at", "2024-01-27 18:27:00.189604"], ["updated_at", "2024-01-27 18:27:00.189604"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (6.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2268.30000000\",\"33894.14360000\",1706399999999,\"76884529.13725100\",106677,\"18073.96260000\",\"40999372.00264800\",\"0\"]"], ["created_at", "2024-01-27 18:27:00.216038"], ["updated_at", "2024-01-27 18:27:00.216038"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (6.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2268.30000000\",\"33894.14360000\",1706399999999,\"76884529.13725100\",106677,\"18073.96260000\",\"40999372.00264800\",\"0\"]"], ["created_at", "2024-01-27 18:27:00.240097"], ["updated_at", "2024-01-27 18:27:00.240097"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (5.5ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2268.30000000\",\"33894.14360000\",1706399999999,\"76884529.13725100\",106677,\"18073.96260000\",\"40999372.00264800\",\"0\"]"], ["created_at", "2024-01-27 18:27:00.273282"], ["updated_at", "2024-01-27 18:27:00.273282"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+Started GET "/kline?symbol=BTCUSDT&interval=1m&limit=1500" for ::1 at 2024-01-27 19:27:23 +0100
+Processing by Api::V1::ApiDataController#kline as JSON
+  Parameters: {"symbol"=>"BTCUSDT", "interval"=>"1m", "limit"=>"1500"}
+  [1m[36mKline Pluck (7.6ms)[0m  [1m[34mSELECT "klines"."content" FROM "klines" WHERE "klines"."symbol" = $1 AND "klines"."interval" = $2 AND ((content->>0)::bigint >= 1706293643000) AND ((content->>0)::bigint <= 1706380043000) GROUP BY "klines"."content" ORDER BY (content->>0)::bigint DESC LIMIT $3[0m  [["symbol", "BTCUSDT"], ["interval", "1m"], ["LIMIT", 1500]]
+  ↳ app/controllers/api/v1/api_data_controller.rb:29:in `kline'
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 7.3ms | Allocations: 909)
+
+
+Started GET "/kline?symbol=BTCUSDT&interval=1m&limit=1500" for ::1 at 2024-01-27 19:27:24 +0100
+Processing by Api::V1::ApiDataController#kline as JSON
+  Parameters: {"symbol"=>"BTCUSDT", "interval"=>"1m", "limit"=>"1500"}
+  [1m[36mKline Pluck (3.4ms)[0m  [1m[34mSELECT "klines"."content" FROM "klines" WHERE "klines"."symbol" = $1 AND "klines"."interval" = $2 AND ((content->>0)::bigint >= 1706293644000) AND ((content->>0)::bigint <= 1706380044000) GROUP BY "klines"."content" ORDER BY (content->>0)::bigint DESC LIMIT $3[0m  [["symbol", "BTCUSDT"], ["interval", "1m"], ["LIMIT", 1500]]
+  ↳ app/controllers/api/v1/api_data_controller.rb:29:in `kline'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 3.4ms | Allocations: 909)
+
+
+  [1m[36mKline Load (0.6ms)[0m  [1m[34mSELECT "klines".* FROM "klines" ORDER BY "klines"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKline Count (106.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (8.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2270.43000000\",\"34188.11950000\",1706399999999,\"77551706.05948900\",107528,\"18269.83800000\",\"41443856.80237100\",\"0\"]"], ["created_at", "2024-01-27 18:31:01.193755"], ["updated_at", "2024-01-27 18:31:01.193755"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (4.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2270.43000000\",\"34188.11950000\",1706399999999,\"77551706.05948900\",107528,\"18269.83800000\",\"41443856.80237100\",\"0\"]"], ["created_at", "2024-01-27 18:31:01.227284"], ["updated_at", "2024-01-27 18:31:01.227284"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Count (109.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mKline Count (111.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mKline Count (96.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (6.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2270.69000000\",\"34230.74340000\",1706399999999,\"77648485.43350800\",107723,\"18283.61520000\",\"41475137.58589000\",\"0\"]"], ["created_at", "2024-01-27 18:32:00.159730"], ["updated_at", "2024-01-27 18:32:00.159730"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (5.2ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "12h"], ["content", "[1706356800000,\"2265.48000000\",\"2275.10000000\",\"2261.35000000\",\"2270.69000000\",\"34230.74340000\",1706399999999,\"77648485.43350800\",107723,\"18283.61520000\",\"41475137.58589000\",\"0\"]"], ["created_at", "2024-01-27 18:32:00.191520"], ["updated_at", "2024-01-27 18:32:00.191520"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Count (99.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (22.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706380200000,\"41808.55000000\",\"41817.64000000\",\"41806.00000000\",\"41816.89000000\",\"16.24225000\",1706380379999,\"679147.75484390\",1273,\"6.30986000\",\"263827.11032230\",\"0\"]"], ["created_at", "2024-01-27 18:33:01.277801"], ["updated_at", "2024-01-27 18:33:01.277801"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (9.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706380320000,\"41814.51000000\",\"41816.89000000\",\"41814.50000000\",\"41816.89000000\",\"2.33248000\",1706380379999,\"97535.27949850\",273,\"1.13384000\",\"47412.55345780\",\"0\"]"], ["created_at", "2024-01-27 18:33:01.347536"], ["updated_at", "2024-01-27 18:33:01.347536"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (12.4ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706380320000,\"2270.75000000\",\"2271.20000000\",\"2270.75000000\",\"2270.95000000\",\"54.14440000\",1706380379999,\"122963.68365400\",202,\"28.39530000\",\"64485.46330400\",\"0\"]"], ["created_at", "2024-01-27 18:33:01.408130"], ["updated_at", "2024-01-27 18:33:01.408130"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (12.8ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "3m"], ["content", "[1706380200000,\"2270.02000000\",\"2271.20000000\",\"2270.02000000\",\"2270.95000000\",\"127.79130000\",1706380379999,\"290169.07365400\",577,\"67.05690000\",\"152256.71991100\",\"0\"]"], ["created_at", "2024-01-27 18:33:01.460132"], ["updated_at", "2024-01-27 18:33:01.460132"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (5.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706380380000,\"41816.89000000\",\"41816.89000000\",\"41795.10000000\",\"41795.11000000\",\"5.61039000\",1706380439999,\"234543.61161900\",588,\"1.40896000\",\"58896.48803320\",\"0\"]"], ["created_at", "2024-01-27 18:34:00.189811"], ["updated_at", "2024-01-27 18:34:00.189811"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Create (4.3ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "ETHUSDT"], ["day", nil], ["interval", "1m"], ["content", "[1706380380000,\"2270.94000000\",\"2270.95000000\",\"2269.00000000\",\"2269.01000000\",\"102.85110000\",1706380439999,\"233450.01816300\",341,\"11.31910000\",\"25688.13465200\",\"0\"]"], ["created_at", "2024-01-27 18:34:00.223827"], ["updated_at", "2024-01-27 18:34:00.223827"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:71:in `block (4 levels) in create_websocket_client'
+  [1m[36mKline Count (103.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (8.0ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41805.99000000\",\"1332.55579000\",1706385599999,\"55725867.55493830\",78201,\"591.79327000\",\"24749289.75386170\",\"0\"]"], ["created_at", "2024-01-27 18:36:01.076771"], ["updated_at", "2024-01-27 18:36:01.076771"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (6.1ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41805.99000000\",\"1332.55579000\",1706385599999,\"55725867.55493830\",78201,\"591.79327000\",\"24749289.75386170\",\"0\"]"], ["created_at", "2024-01-27 18:36:01.106600"], ["updated_at", "2024-01-27 18:36:01.106600"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (5.9ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41805.99000000\",\"1332.55579000\",1706385599999,\"55725867.55493830\",78201,\"591.79327000\",\"24749289.75386170\",\"0\"]"], ["created_at", "2024-01-27 18:36:01.164672"], ["updated_at", "2024-01-27 18:36:01.164672"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Create (4.6ms)[0m  [1m[32mINSERT INTO "klines" ("symbol", "day", "interval", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symbol", "BTCUSDT"], ["day", nil], ["interval", "4h"], ["content", "[1706371200000,\"41813.99000000\",\"41895.74000000\",\"41745.26000000\",\"41805.99000000\",\"1332.55579000\",1706385599999,\"55725867.55493830\",78201,\"591.79327000\",\"24749289.75386170\",\"0\"]"], ["created_at", "2024-01-27 18:36:01.187895"], ["updated_at", "2024-01-27 18:36:01.187895"]]
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ lib/tasks/scratch_by_websocket.rake:51:in `block in get_other_data'
+  [1m[36mKline Count (114.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
+  [1m[36mKline Count (119.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "klines"[0m
