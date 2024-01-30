@@ -2,7 +2,7 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $logger = Logger.new(STDOUT)
     $klines_data = Queue.new
 
     def get_other_data(all_records, raw_records, timestamp)
