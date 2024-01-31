@@ -85,15 +85,36 @@ namespace :klines_websocket do
         create_websocket_client(symbols, intervals, all_records)
 
         def insert_data(all_records)
-          all_records.each_slice(4000) do |record|
-            klines = record.map do |symbol, interval, content|
-              { symbol: symbol, interval: interval, content: content }
-            end
-            Kline.upsert_all(klines, unique_by: :kline_ydx)
+          all_records.each_slice(4000) do |record_slice|
+            values = record_slice.map do |symbol, interval, content|
+              # Convert the content array to JSON string
+              content_json = content.to_json
+              # Properly format and escape the string for SQL
+              "('#{ActiveRecord::Base.connection.quote_string(symbol)}', '#{ActiveRecord::Base.connection.quote_string(interval)}', '#{ActiveRecord::Base.connection.quote_string(content_json)}')"
+            end.join(",")
+        
+            date_time = DateTime.now.utc
+            timestamp_limit = date_time.beginning_of_day.to_i * 1000
+        
+            sql = <<-SQL
+              INSERT INTO klines (symbol, interval, content, created_at, updated_at)
+              SELECT v.symbol, v.interval, v.content::jsonb, NOW(), NOW()
+              FROM (VALUES #{values}) AS v(symbol, interval, content)
+              WHERE NOT EXISTS (
+                SELECT 1 FROM klines 
+                WHERE (content->>0)::bigint > #{timestamp_limit}
+                AND klines.symbol = v.symbol 
+                AND klines.interval = v.interval
+              )
+                ON CONFLICT DO NOTHING;
+            SQL
+        
+            ActiveRecord::Base.connection.execute(sql)
           end
-
+        
           all_records.clear
         end
+        
 
         loop do
           sleep 2
