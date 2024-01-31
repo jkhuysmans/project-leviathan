@@ -86,30 +86,25 @@ namespace :klines_websocket do
 
         def insert_data(all_records)
           all_records.each_slice(4000) do |record_slice|
-            values = record_slice.map do |symbol, interval, content|
-              # Convert the content array to JSON string
-              content_json = content.to_json
-              # Properly format and escape the string for SQL
-              "('#{ActiveRecord::Base.connection.quote_string(symbol)}', '#{ActiveRecord::Base.connection.quote_string(interval)}', '#{ActiveRecord::Base.connection.quote_string(content_json)}')"
-            end.join(",")
+            csv_data = CSV.generate(force_quotes: true) do |csv|
+              record_slice.each do |symbol, interval, content|
+                content_json = content.to_json
+                csv << [symbol, interval, content_json, Time.now, Time.now]
+              end
+            end
         
-            date_time = DateTime.now.utc
-            timestamp_limit = date_time.beginning_of_day.to_i * 1000
+            # $logger.info("CSV: #{csv_data}")
+            copy_sql = "COPY klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV"
+            Open3.popen3("psql -d leviathan_development") do |stdin, stdout, stderr, wait_thr|
+              stdin.puts copy_sql
+              stdin.puts csv_data
+              stdin.close_write
         
-            sql = <<-SQL
-              INSERT INTO klines (symbol, interval, content, created_at, updated_at)
-              SELECT v.symbol, v.interval, v.content::jsonb, NOW(), NOW()
-              FROM (VALUES #{values}) AS v(symbol, interval, content)
-              WHERE NOT EXISTS (
-                SELECT 1 FROM klines 
-                WHERE (content->>0)::bigint > #{timestamp_limit}
-                AND klines.symbol = v.symbol 
-                AND klines.interval = v.interval
-              )
-                ON CONFLICT DO NOTHING;
-            SQL
-        
-            ActiveRecord::Base.connection.execute(sql)
+              output = stdout.read
+              error = stderr.read
+              puts output unless output.empty?
+              raise error unless error.empty?
+            end
           end
         
           all_records.clear
@@ -117,9 +112,8 @@ namespace :klines_websocket do
         
 
         loop do
-          sleep 2
-          p all_records.count
-          if all_records.count > 1000
+          sleep 1
+          if all_records.count > 100
             # $logger.info(all_records)
             insert_data(all_records)
           end
