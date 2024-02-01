@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_21_014730) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_01_000624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_014730) do
     t.bigint "start_time"
     t.bigint "end_time"
     t.index ["symbol", "start_time", "end_time", "interval"], name: "index_unique_oi", unique: true
+  end
+
+  create_table "import_klines", id: :bigint, default: -> { "nextval('klines_id_seq'::regclass)" }, force: :cascade do |t|
+    t.text "symbol"
+    t.date "day"
+    t.text "interval"
+    t.jsonb "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "symbol, \"interval\", (((content ->> 0))::bigint)", name: "import_klines_symbol_interval_int8_idx", unique: true
   end
 
   create_table "klines", force: :cascade do |t|
