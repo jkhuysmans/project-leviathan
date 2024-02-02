@@ -197,3 +197,8 @@ I, [2024-02-01T01:07:28.228358 #142059]  INFO -- : Subscribed to wss://stream.bi
 I, [2024-02-01T01:07:28.231988 #142059]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
 I, [2024-02-01T01:07:28.355856 #142059]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
 I, [2024-02-01T01:07:28.594867 #142059]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T08:54:03.776347 #145085]  INFO -- : Number of streams being listened to: 3930
+I, [2024-02-02T08:54:04.873531 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T08:54:04.877086 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T08:54:05.097722 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T08:54:05.696452 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
