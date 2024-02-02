@@ -2,7 +2,7 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $logger = Logger.new(STDOUT)
 
     all_records = []
 
@@ -85,36 +85,35 @@ namespace :klines_websocket do
         create_websocket_client(symbols, intervals, all_records)
 
         def insert_data(all_records)
+          $logger.info("Start inserting data...")
           file_path = Rails.root.join('data.csv').to_s
         
           ActiveRecord::Base.connection.execute("TRUNCATE import_klines;")  # Clear the table
-        
-          all_records.each_slice(4000) do |record_slice|
+         
             CSV.open(file_path, 'w', force_quotes: true) do |csv|
-              record_slice.each do |symbol, interval, content|
+              csv << ['symbol', 'interval', 'content', 'created_at', 'updated_at']
+
+              all_records.each do |symbol, interval, content|
                 content_json = content.to_json
                 csv << [symbol, interval, content_json, Time.now, Time.now]
               end
             end
         
-            copy_command = "psql -d leviathan_development -c \"\\copy import_klines FROM '#{file_path}' WITH CSV\""
+            copy_command = "psql -d leviathan_development -c \"\\copy import_klines(symbol, interval, content, created_at, updated_at) FROM '#{file_path}' WITH CSV HEADER\""
             system(copy_command)
         
             insert_command = "INSERT INTO klines SELECT * FROM import_klines WHERE NOT EXISTS (SELECT 1 FROM klines WHERE klines.symbol = import_klines.symbol AND klines.interval = import_klines.interval AND (klines.content->>0)::bigint = (import_klines.content->>0)::bigint) ON CONFLICT DO NOTHING"
             system("psql -d leviathan_development -c \"#{insert_command}\"")
         
             all_records.clear
-            File.delete(file_path) if File.exist?(file_path)
-          end
+            File.open(file_path, 'w') {}
         end
         
         
 
         loop do
           sleep 1
-          p all_records.count
-          if all_records.count > 100
-            # $logger.info(all_records)
+          if all_records.count > 10000
             insert_data(all_records)
           end
         end

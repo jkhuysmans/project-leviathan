@@ -202,3 +202,38 @@ I, [2024-02-02T08:54:04.873531 #145085]  INFO -- : Subscribed to wss://stream.bi
 I, [2024-02-02T08:54:04.877086 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
 I, [2024-02-02T08:54:05.097722 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
 I, [2024-02-02T08:54:05.696452 #145085]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:38:37.857984 #163668]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T09:38:38.915371 #163668]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:38:38.918833 #163668]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:38:38.926691 #163668]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:38:39.243367 #163668]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:41:43.897963 #164250]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T09:41:44.965150 #164250]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:41:45.054570 #164250]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:41:45.056872 #164250]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:41:45.058938 #164250]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:43:04.074426 #164721]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T09:43:05.123388 #164721]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:43:05.128374 #164721]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:43:05.136298 #164721]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:43:05.300983 #164721]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:44:13.128533 #165208]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T09:44:14.209651 #165208]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:44:14.212245 #165208]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:44:14.491083 #165208]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T09:44:15.839585 #165208]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:31:07.421135 #169205]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T17:31:08.516153 #169205]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:31:08.538558 #169205]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:31:08.527064 #169205]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:31:08.650074 #169205]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:40:37.587345 #171722]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T17:40:38.752367 #171722]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:40:38.763166 #171722]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:40:38.768670 #171722]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:40:38.773362 #171722]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:47:47.167210 #172783]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-02T17:47:48.399161 #172783]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:47:48.579576 #172783]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:47:48.662114 #172783]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-02T17:47:48.985264 #172783]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
