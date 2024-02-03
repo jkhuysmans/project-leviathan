@@ -2,7 +2,8 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(STDOUT)
+    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $websocket_clients = []
 
     all_records = []
 
@@ -21,8 +22,15 @@ namespace :klines_websocket do
             base_url = "wss://stream.binance.com:9443/ws"
         
           WebSocket::Client::Simple.connect base_url do |ws|
-
+            $websocket_clients << ws
+            
             ws.on :message do |msg|
+
+              # $logger.info(msg.data)
+
+              if msg.type == :ping
+                ws.send(msg.data, type: :pong)
+              else
 
               data = JSON.parse(msg.data)
 
@@ -34,6 +42,7 @@ namespace :klines_websocket do
               transformed_record = [records['t'], records['o'], records['h'], records['l'], records['c'], records['v'], records['T'], records['q'], records['n'], records['V'], records['Q'], "0"]
               all_records << [symbol, interval, transformed_record]
               end
+            end
             end
 
             ws.on :open do
@@ -55,19 +64,29 @@ namespace :klines_websocket do
                   id: 3
                 }
                 # $logger.info("Requesting list of current subscriptions: #{list_subscriptions_request.to_json}")
-                ws.send(list_subscriptions_request.to_json)    
+                # ws.send(list_subscriptions_request.to_json)    
             end
         
             ws.on :close do |e|
               puts "Closed connection to #{base_url}"
             end
-        
-
-          end
           end
         end
-
+        end
         threads.each(&:join)
+
+        reconnection_thread = Thread.new do
+             
+          sleep_time = (24 * 60 * 60) - 600 
+          sleep(sleep_time)
+      
+          $websocket_clients.each do |ws_client|
+            ws_client.close if ws_client.open?
+          end
+      
+          $logger.info("Reconnecting after 24-hour interval")
+          create_websocket_client(symbols, intervals, all_records)
+        end
       end
 
         def get_all_symbols
@@ -80,7 +99,6 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols
 
         create_websocket_client(symbols, intervals, all_records)
 
@@ -114,7 +132,7 @@ namespace :klines_websocket do
         loop do
           sleep 1
           if all_records.count > 10000
-            insert_data(all_records)
+            # insert_data(all_records)
           end
         end
 
