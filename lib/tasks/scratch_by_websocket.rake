@@ -106,7 +106,7 @@ namespace :klines_websocket do
           start = Time.now
           file_path = Rails.root.join('data.csv').to_s
         
-          ActiveRecord::Base.connection.execute("TRUNCATE import_klines;")  # Clear the table
+          ActiveRecord::Base.connection.execute("TRUNCATE import_klines;") 
          
           csv_data = CSV.generate(force_quotes: true) do |csv|
             csv << ['symbol', 'interval', 'content', 'created_at', 'updated_at']
@@ -120,7 +120,6 @@ namespace :klines_websocket do
           
           ActiveRecord::Base.connection.raw_connection.tap do |conn|
             conn.copy_data "COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER" do
-            # Feed the CSV data into the COPY command
               conn.put_copy_data(csv_data)
             end
           end
