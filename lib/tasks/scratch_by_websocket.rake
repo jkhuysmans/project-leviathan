@@ -84,7 +84,7 @@ namespace :klines_websocket do
           end
       
           $logger.info("Reconnecting after 24-hour interval")
-          create_websocket_client(symbols, intervals, all_records)
+          create_websocket_client(symbols, intervals, all_records, websocket_clients)
         end
       end
 
@@ -99,37 +99,42 @@ namespace :klines_websocket do
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
 
-        create_websocket_client(symbols, intervals, all_records)
+        create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
         def insert_data(all_records)
           $logger.info("Start inserting data...")
+          start = Time.now
           file_path = Rails.root.join('data.csv').to_s
         
           ActiveRecord::Base.connection.execute("TRUNCATE import_klines;")  # Clear the table
          
-            CSV.open(file_path, 'w', force_quotes: true) do |csv|
-              csv << ['symbol', 'interval', 'content', 'created_at', 'updated_at']
-
-              all_records.each do |symbol, interval, content|
-                content_json = content.to_json
-                csv << [symbol, interval, content_json, Time.now, Time.now]
-              end
+          csv_data = CSV.generate(force_quotes: true) do |csv|
+            csv << ['symbol', 'interval', 'content', 'created_at', 'updated_at']
+            all_records.each do |symbol, interval, content|
+              content_json = content.to_json
+              csv << [symbol, interval, content_json, Time.now.utc, Time.now.utc]
             end
+          end
         
-            copy_command = "psql -d leviathan_development -c \"\\copy import_klines(symbol, interval, content, created_at, updated_at) FROM '#{file_path}' WITH CSV HEADER\""
-            system(copy_command)
+          copy_command = "psql -d leviathan_development -c \"\\COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER\""
+          
+          Open3.popen3(copy_command) do |stdin, stdout, stderr, wait_thr|
+            stdin.puts csv_data
+            stdin.close 
+          end
         
-            insert_command = "INSERT INTO klines SELECT * FROM import_klines WHERE NOT EXISTS (SELECT 1 FROM klines WHERE klines.symbol = import_klines.symbol AND klines.interval = import_klines.interval AND (klines.content->>0)::bigint = (import_klines.content->>0)::bigint) ON CONFLICT DO NOTHING"
-            system("psql -d leviathan_development -c \"#{insert_command}\"")
-        
-            all_records.clear
-            File.open(file_path, 'w') {}
+          insert_command = "INSERT INTO klines SELECT * FROM import_klines WHERE NOT EXISTS (SELECT 1 FROM klines WHERE klines.symbol = import_klines.symbol AND klines.interval = import_klines.interval AND (klines.content->>0)::bigint = (import_klines.content->>0)::bigint) ON CONFLICT DO NOTHING"
+          system("psql -d leviathan_development -c \"#{insert_command}\"")
+
+          all_records.clear
+          $logger.info("Took #{Time.now - start}")
         end
         
         
 
         loop do
           sleep 1
+          p all_records.count
           if all_records.count > 10000
             insert_data(all_records)
           end

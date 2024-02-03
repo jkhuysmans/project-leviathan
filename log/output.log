@@ -1,29 +1,32 @@
-I, [2024-02-03T17:40:13.852391 #10046]  INFO -- : Number of streams being listened to: 3945
-I, [2024-02-03T17:40:14.898404 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:40:14.900727 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:40:15.119863 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:40:15.123642 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:41:15.075092 #10046]  INFO -- : Reconnecting after 24-hour interval
-I, [2024-02-03T17:41:15.089295 #10046]  INFO -- : Number of streams being listened to: 3945
-I, [2024-02-03T17:41:16.082693 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:41:16.192475 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:41:16.293197 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:41:16.299724 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:42:16.334882 #10046]  INFO -- : Reconnecting after 24-hour interval
-I, [2024-02-03T17:42:16.383804 #10046]  INFO -- : Number of streams being listened to: 3945
-I, [2024-02-03T17:42:17.434380 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:42:17.575825 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:42:17.579004 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:42:17.581696 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:43:17.822039 #10046]  INFO -- : Reconnecting after 24-hour interval
-I, [2024-02-03T17:43:17.869410 #10046]  INFO -- : Number of streams being listened to: 3945
-I, [2024-02-03T17:43:18.978580 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:43:19.102952 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:43:19.119254 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:43:19.105829 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:44:19.067766 #10046]  INFO -- : Reconnecting after 24-hour interval
-I, [2024-02-03T17:44:19.095835 #10046]  INFO -- : Number of streams being listened to: 3945
-I, [2024-02-03T17:44:20.129846 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:44:20.265758 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:44:20.268721 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
-I, [2024-02-03T17:44:20.271630 #10046]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+# Logfile created on 2024-02-03 20:03:31 +0100 by logger.rb/v1.5.3
+I, [2024-02-03T20:04:29.854154 #14956]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-03T20:04:30.900348 #14956]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:04:30.904085 #14956]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:04:31.012663 #14956]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:04:31.104952 #14956]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:04:44.801617 #14956]  INFO -- : Start inserting data...
+I, [2024-02-03T20:06:50.184360 #15167]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-03T20:06:51.204941 #15167]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:06:51.209291 #15167]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:06:51.316811 #15167]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:06:51.642005 #15167]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:07:04.272288 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:10:27.366985 #15167]  INFO -- : Took 202.793914354
+I, [2024-02-03T20:10:39.760527 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:10:44.216198 #15167]  INFO -- : Took 4.254505525
+I, [2024-02-03T20:10:56.273043 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:10:59.190782 #15167]  INFO -- : Took 2.717022001
+I, [2024-02-03T20:11:12.161540 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:11:15.981311 #15167]  INFO -- : Took 3.618709339
+I, [2024-02-03T20:11:28.346035 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:11:32.367221 #15167]  INFO -- : Took 4.021035855
+I, [2024-02-03T20:11:44.457099 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:11:48.305787 #15167]  INFO -- : Took 3.848470695
+I, [2024-02-03T20:12:01.507365 #15167]  INFO -- : Start inserting data...
+I, [2024-02-03T20:12:05.352852 #15167]  INFO -- : Took 3.545091158
+I, [2024-02-03T20:16:33.650189 #16049]  INFO -- : Number of streams being listened to: 3945
+I, [2024-02-03T20:16:34.721498 #16049]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:16:34.746975 #16049]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:16:34.851659 #16049]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:16:34.853824 #16049]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-03T20:18:48.496357 #16049]  INFO -- : Start inserting data...
