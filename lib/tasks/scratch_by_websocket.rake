@@ -3,11 +3,11 @@ namespace :klines_websocket do
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
     $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
-    $websocket_clients = []
+    websocket_clients = []
 
     all_records = []
 
-      def create_websocket_client(symbols, intervals, all_records)
+      def create_websocket_client(symbols, intervals, all_records, websocket_clients)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
     
         $logger.info("Number of streams being listened to: #{streams.count}")
@@ -22,7 +22,7 @@ namespace :klines_websocket do
             base_url = "wss://stream.binance.com:9443/ws"
         
           WebSocket::Client::Simple.connect base_url do |ws|
-            $websocket_clients << ws
+            websocket_clients << ws
             
             ws.on :message do |msg|
 
@@ -55,7 +55,6 @@ namespace :klines_websocket do
                   "params": batch,
                   "id": index + 1
                   }
-                  # $logger.info("Subscribe request for batch #{index + 1}: #{subscribe_request.to_json}")
                   ws.send(subscribe_request.to_json)
                 end
 
@@ -80,7 +79,7 @@ namespace :klines_websocket do
           sleep_time = (24 * 60 * 60) - 600 
           sleep(sleep_time)
       
-          $websocket_clients.each do |ws_client|
+          websocket_clients.each do |ws_client|
             ws_client.close if ws_client.open?
           end
       
@@ -132,7 +131,7 @@ namespace :klines_websocket do
         loop do
           sleep 1
           if all_records.count > 10000
-            # insert_data(all_records)
+            insert_data(all_records)
           end
         end
 
