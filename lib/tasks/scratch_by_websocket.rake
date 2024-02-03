@@ -118,9 +118,11 @@ namespace :klines_websocket do
         
           copy_command = "psql -d leviathan_development -c \"\\COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER\""
           
-          Open3.popen3(copy_command) do |stdin, stdout, stderr, wait_thr|
-            stdin.puts csv_data
-            stdin.close 
+          ActiveRecord::Base.connection.raw_connection.tap do |conn|
+            conn.copy_data "COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER" do
+            # Feed the CSV data into the COPY command
+              conn.put_copy_data(csv_data)
+            end
           end
         
           insert_command = "INSERT INTO klines SELECT * FROM import_klines WHERE NOT EXISTS (SELECT 1 FROM klines WHERE klines.symbol = import_klines.symbol AND klines.interval = import_klines.interval AND (klines.content->>0)::bigint = (import_klines.content->>0)::bigint) ON CONFLICT DO NOTHING"
