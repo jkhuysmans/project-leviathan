@@ -14,10 +14,10 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(256) do |stream_slice|
+        streams.each_slice(195) do |stream_slice|
           threads << Thread.new do
 
-            batches = streams.each_slice(195).to_a
+            batches = streams.each_slice(196).to_a
 
             base_url = "wss://stream.binance.com:9443/ws"
         
