@@ -78,7 +78,7 @@ namespace :klines_refresh do
       where jsonb_typeof(content) = 'array'
       and start_time > #{date_time.last_month.beginning_of_month.to_i * 1e3.to_i}
       AND EXISTS (
-    SELECT 1 FROM klines WHERE (content->>0)::bigint > #{date_time.beginning_of_month.to_i * 1e3.to_i}
+    SELECT 1 FROM klines WHERE (content->>0)::bigint > #{(date_time.beginning_of_month - 1.day).to_i * 1e3.to_i}
 )
       on conflict do nothing;
   SQL
