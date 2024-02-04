@@ -21,3 +21,10 @@
 
 env :PATH, ENV['PATH']
 
+every 1.minute do
+    rake 'klines_refresh:scratch_by_minute', environment: 'production'
+  end
+
+every 5.minute do
+  rake 'oi_fetcher:refresh_oi', environment: 'production'
+end
