@@ -140,7 +140,6 @@ namespace :klines_websocket do
         loop do
           sleep 1
           p all_records.count
-          $logger.info("refresh")
           if all_records.count > 10000
             puts "inserting data at #{Time.now}"
             insert_data(all_records)
