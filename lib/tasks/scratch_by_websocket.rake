@@ -14,7 +14,7 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(1024) do |stream_slice|
+        streams.each_slice(512) do |stream_slice|
           threads << Thread.new do
 
             batches = streams.each_slice(195).to_a
@@ -98,9 +98,8 @@ namespace :klines_websocket do
         end
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
-        intervals = ["1m", "3m", "5m", "15m"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[0..0]
+        symbols = symbols
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 

@@ -10,10 +10,11 @@ namespace :klines_fetcher do
 
   def fetch_with_proxy(queue, raw_records, initial_date_time)
     workers = []
-    worker_count = 6
+    worker_count = 5
     worker_count.times do |i|
-      queue.each do |item|
       workers << Thread.new do
+        until queue.empty?
+          item = queue.pop
       
         date_time =  initial_date_time
 
