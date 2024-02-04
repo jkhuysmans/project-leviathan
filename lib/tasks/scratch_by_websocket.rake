@@ -116,7 +116,7 @@ namespace :klines_websocket do
             end
           end
         
-          copy_command = "psql -d leviathan_development -c \"\\COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER\""
+          copy_command = "psql -d leviathan_production -c \"\\COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER\""
           
           ActiveRecord::Base.connection.raw_connection.tap do |conn|
             conn.copy_data "COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER" do
@@ -125,7 +125,7 @@ namespace :klines_websocket do
           end
         
           insert_command = "INSERT INTO klines SELECT * FROM import_klines WHERE NOT EXISTS (SELECT 1 FROM klines WHERE klines.symbol = import_klines.symbol AND klines.interval = import_klines.interval AND (klines.content->>0)::bigint = (import_klines.content->>0)::bigint) ON CONFLICT DO NOTHING"
-          system("psql -d leviathan_development -c \"#{insert_command}\"")
+          system("psql -d leviathan_production -c \"#{insert_command}\"")
 
           all_records.clear
           $logger.info("Took #{Time.now - start}")
