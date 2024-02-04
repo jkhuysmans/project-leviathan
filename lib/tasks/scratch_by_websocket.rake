@@ -99,7 +99,7 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols
+        symbols = symbols[0..0]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
@@ -136,6 +136,7 @@ namespace :klines_websocket do
         loop do
           sleep 1
           if all_records.count > 10000
+            puts "inserting data at #{Time.now}"
             insert_data(all_records)
           end
         end
