@@ -24,7 +24,7 @@ namespace :klines_websocket do
             
             ws.on :message do |msg|
 
-              $logger.info(msg.data)
+              # $logger.info(msg.data)
 
               if msg.type == :ping
                 ws.send(msg.data, type: :pong)
