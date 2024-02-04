@@ -14,7 +14,7 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(195) do |stream_slice|
+        streams.each_slice(1020) do |stream_slice|
           threads << Thread.new do
 
             batches = streams.each_slice(195).to_a
@@ -26,7 +26,7 @@ namespace :klines_websocket do
             
             ws.on :message do |msg|
 
-             # $logger.info(msg.data)
+              # $logger.info(msg.data)
 
               if msg.type == :ping
                 ws.send(msg.data, type: :pong)
@@ -49,11 +49,11 @@ namespace :klines_websocket do
               $logger.info("Subscribed to #{base_url}")
 
               threads = []
-              batches.each_with_index do |batch, index|
+              batches.each do |batch|
                   subscribe_request = {
                   "method": "SUBSCRIBE",
                   "params": batch,
-                  "id": index + 1
+                  "id": 1
                   }
                   ws.send(subscribe_request.to_json)
                 end
@@ -99,7 +99,7 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = ["btcusdt", "ethusdt", "solusdt"]
+        symbols = symbols[0..67]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
