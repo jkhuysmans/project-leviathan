@@ -9,7 +9,8 @@ namespace :klines_websocket do
 
       def create_websocket_client(symbols, intervals, all_records, websocket_clients)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
-    
+        streams = streams[0..195]
+        
         $logger.info("Number of streams being listened to: #{streams.count}")
         
         threads = []
