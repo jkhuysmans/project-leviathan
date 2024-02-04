@@ -47,23 +47,15 @@ namespace :klines_websocket do
 
             ws.on :open do
               $logger.info("Subscribed to #{base_url}")
-
-              threads = []
-              batches.each_with_index do |batch, index|
-                  subscribe_request = {
-                  "method": "SUBSCRIBE",
-                  "params": batch,
-                  "id": index + 1
-                  }
-                  ws.send(subscribe_request.to_json)
-                end
-
-                list_subscriptions_request = {
-                  method: "LIST_SUBSCRIPTIONS",
-                  id: 3
-                }
-                # $logger.info("Requesting list of current subscriptions: #{list_subscriptions_request.to_json}")
-                # ws.send(list_subscriptions_request.to_json)    
+            
+              # Assuming `streams` contains all the stream names you want to subscribe to
+              # And does not exceed the Binance limit for a single WebSocket connection
+              subscribe_request = {
+                "method": "SUBSCRIBE",
+                "params": streams,
+                "id": 1
+              }
+              ws.send(subscribe_request.to_json)
             end
         
             ws.on :close do |e|
