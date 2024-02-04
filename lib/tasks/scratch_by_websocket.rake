@@ -14,10 +14,10 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(195) do |stream_slice|
+        streams.each_slice(256) do |stream_slice|
           threads << Thread.new do
 
-            batches = streams.to_a
+            batches = streams.each_slice(195).to_a
 
             base_url = "wss://stream.binance.com:9443/ws"
         
@@ -53,7 +53,7 @@ namespace :klines_websocket do
                   subscribe_request = {
                   "method": "SUBSCRIBE",
                   "params": batch,
-                  "id": 1
+                  "id": index + 1
                   }
                   ws.send(subscribe_request.to_json)
                 end
@@ -62,6 +62,8 @@ namespace :klines_websocket do
                   method: "LIST_SUBSCRIPTIONS",
                   id: 3
                 }
+                # $logger.info("Requesting list of current subscriptions: #{list_subscriptions_request.to_json}")
+                # ws.send(list_subscriptions_request.to_json)    
             end
         
             ws.on :close do |e|
