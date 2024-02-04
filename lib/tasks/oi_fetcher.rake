@@ -10,13 +10,14 @@ namespace :oi_fetcher do
         all_symbols
     end
       
-    all_symbols = ["BTCUSDT", "ETHUSDT", "SOLUSDT"]
+    all_symbols = get_all_symbols
 
     all_intervals = ["5m","15m","30m","1h","2h","4h","6h","12h","1d"]
 
     queue = Queue.new
 
     all_symbols.product(all_intervals).each { |item| queue.push(item) }
+    p queue.length
 
     end_time = DateTime.now.beginning_of_day.utc.to_i * 1000
     start_time = (end_time - 1.months).to_i * 1000
@@ -158,7 +159,7 @@ on conflict do nothing;
   where jsonb_typeof(content) = 'array'
   and start_time > #{date_time.last_month.beginning_of_month.to_i * 1e3.to_i}
         AND EXISTS (
-      SELECT 1 FROM open_interests WHERE (content ->> 'timestamp')::bigint > #{date_time.beginning_of_month.to_i * 1e3.to_i}
+      SELECT 1 FROM open_interests WHERE (content ->> 'timestamp')::bigint > #{(date_time.beginning_of_month - 1.day).to_i * 1e3.to_i}
   )
   on conflict do nothing;
     SQL

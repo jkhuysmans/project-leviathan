@@ -130,8 +130,6 @@ namespace :klines_websocket do
           all_records.clear
           $logger.info("Took #{Time.now - start}")
         end
-        
-        
 
         loop do
           sleep 1
