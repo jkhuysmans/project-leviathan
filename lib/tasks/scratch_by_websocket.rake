@@ -57,7 +57,7 @@ namespace :klines_websocket do
                   subscribe_request = {
                   "method": "SUBSCRIBE",
                   "params": batch,
-                  "id": index + 1
+                  "id": 1
                   }
                   ws.send(subscribe_request.to_json)
                 end
