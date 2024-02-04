@@ -14,7 +14,7 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(512) do |stream_slice|
+        streams.each_slice(256) do |stream_slice|
           threads << Thread.new do
 
             batches = streams.each_slice(195).to_a
