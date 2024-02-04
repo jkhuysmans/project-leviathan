@@ -98,8 +98,9 @@ namespace :klines_websocket do
         end
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
+        intervals = ["3m"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols
+        symbols = symbols[0..0]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
