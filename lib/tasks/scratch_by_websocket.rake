@@ -17,6 +17,8 @@ namespace :klines_websocket do
         streams.each_slice(195) do |stream_slice|
           threads << Thread.new do
 
+            batches = streams.to_a
+
             base_url = "wss://stream.binance.com:9443/ws"
         
           WebSocket::Client::Simple.connect base_url do |ws|
@@ -24,7 +26,7 @@ namespace :klines_websocket do
             
             ws.on :message do |msg|
 
-              # $logger.info(msg.data)
+              $logger.info(msg.data)
 
               if msg.type == :ping
                 ws.send(msg.data, type: :pong)
@@ -47,13 +49,14 @@ namespace :klines_websocket do
               $logger.info("Subscribed to #{base_url}")
 
               threads = []
-               
-              subscribe_request = {
-              "method": "SUBSCRIBE",
-              "params": streams,
-              "id": 1
-              }
-              ws.send(subscribe_request.to_json)
+              batches.each_with_index do |batch, index|
+                  subscribe_request = {
+                  "method": "SUBSCRIBE",
+                  "params": batch,
+                  "id": 1
+                  }
+                  ws.send(subscribe_request.to_json)
+                end
 
                 list_subscriptions_request = {
                   method: "LIST_SUBSCRIPTIONS",
