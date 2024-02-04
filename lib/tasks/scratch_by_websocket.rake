@@ -17,8 +17,6 @@ namespace :klines_websocket do
         streams.each_slice(1020) do |stream_slice|
           threads << Thread.new do
 
-            batches = streams.each_slice(195).to_a
-
             base_url = "wss://stream.binance.com:9443/ws"
         
           WebSocket::Client::Simple.connect base_url do |ws|
@@ -33,6 +31,10 @@ namespace :klines_websocket do
               else
 
               data = JSON.parse(msg.data)
+
+              if data.key?('result') && data['result'].nil? && data.key?('id')
+                $logger.info("Subscription message received: #{msg.data}")
+              end
 
               if data['k']
               raw_record = JSON.parse(msg.data)
@@ -49,11 +51,13 @@ namespace :klines_websocket do
               $logger.info("Subscribed to #{base_url}")
 
               threads = []
-              batches.each do |batch|
+              batches = stream_slice.each_slice(195).to_a
+
+              batches.each_with_index do |batch, index|
                   subscribe_request = {
                   "method": "SUBSCRIBE",
                   "params": batch,
-                  "id": 1
+                  "id": index + 1
                   }
                   ws.send(subscribe_request.to_json)
                 end
@@ -77,7 +81,7 @@ namespace :klines_websocket do
 
         reconnection_thread = Thread.new do
              
-          sleep_time = (24 * 60 * 60) - 600 
+          sleep_time = (24 * 60 * 60) - 580 
           sleep(sleep_time)
       
           websocket_clients.each do |ws_client|
@@ -136,6 +140,7 @@ namespace :klines_websocket do
         loop do
           sleep 1
           p all_records.count
+          $logger.info("refresh")
           if all_records.count > 10000
             puts "inserting data at #{Time.now}"
             insert_data(all_records)
