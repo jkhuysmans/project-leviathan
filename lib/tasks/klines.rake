@@ -33,7 +33,6 @@ namespace :klines do
                 end
             
                 url = generate_url(item[0], item[1], start_time, end_time)
-                puts "url: #{url}"
     
                 if proxy_config[:host] == nil
                     start_local = Time.now
