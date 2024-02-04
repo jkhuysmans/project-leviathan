@@ -9,8 +9,8 @@ namespace :klines_websocket do
 
       def create_websocket_client(symbols, intervals, all_records, websocket_clients)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
-        streams = streams[0..195]
-        
+        streams = streams[0..194]
+
         $logger.info("Number of streams being listened to: #{streams.count}")
         
         threads = []
@@ -27,7 +27,7 @@ namespace :klines_websocket do
             
             ws.on :message do |msg|
 
-              $logger.info(msg.data)
+             # $logger.info(msg.data)
 
               if msg.type == :ping
                 ws.send(msg.data, type: :pong)
