@@ -46,8 +46,6 @@ namespace :klines_refresh do
       response = Net::HTTP.get(url)
       content = JSON.parse(response)
 
-      p content
-
       raw_records << [item[0], start_time, end_time, item[1], content]
 
       sleep(1)
