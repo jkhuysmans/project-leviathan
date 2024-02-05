@@ -7,6 +7,15 @@ namespace :klines_websocket do
 
     all_records = []
 
+      def reconnection(symbols, intervals, all_records, websocket_clients)
+        websocket_clients.each do |ws_client|
+          ws_client.close if ws_client.open?
+        end
+    
+        $logger.info("Reconnecting...")
+        create_websocket_client(symbols, intervals, all_records, websocket_clients)
+      end
+
       def create_websocket_client(symbols, intervals, all_records, websocket_clients)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
 
@@ -14,16 +23,21 @@ namespace :klines_websocket do
         
         threads = []
 
-        streams.each_slice(1020) do |stream_slice|
+        streams.each_slice(195) do |stream_slice|
           threads << Thread.new do
 
             base_url = "wss://stream.binance.com:9443/ws"
+
+            last_message_time = Time.now
+
+            reset_timer = -> { last_message_time = Time.now }
         
           WebSocket::Client::Simple.connect base_url do |ws|
             websocket_clients << ws
             
             ws.on :message do |msg|
 
+              reset_timer.call
               # $logger.info(msg.data)
 
               if msg.type == :ping
@@ -32,7 +46,7 @@ namespace :klines_websocket do
 
               data = JSON.parse(msg.data)
 
-              if data.key?('result') && data['result'].nil? && data.key?('id')
+              if data.key?('result') && data.key?('id')
                 $logger.info("Subscription message received: #{msg.data}")
               end
 
@@ -60,18 +74,23 @@ namespace :klines_websocket do
                   "id": 1
                   }
                   ws.send(subscribe_request.to_json)
-                end
-
-                list_subscriptions_request = {
-                  method: "LIST_SUBSCRIPTIONS",
-                  id: 3
-                }
-                # $logger.info("Requesting list of current subscriptions: #{list_subscriptions_request.to_json}")
-                # ws.send(list_subscriptions_request.to_json)    
+                end  
             end
         
             ws.on :close do |e|
-              $logger.info("Closed connection to #{base_url}, Code: #{e.code}, Reason: '#{e.reason}'")
+              $logger.info("Closed connection")
+            end
+
+            Thread.new do
+              loop do
+                if Time.now - last_message_time > 10
+                  $logger.info("No new message in the last 10 seconds.")
+                  
+                  reconnection(symbols, intervals, all_records, websocket_clients)
+                  reset_timer.call
+                end
+                sleep 1
+              end
             end
 
           end
@@ -84,12 +103,8 @@ namespace :klines_websocket do
           sleep_time = (24 * 60 * 60) - 580 
           sleep(sleep_time)
       
-          websocket_clients.each do |ws_client|
-            ws_client.close if ws_client.open?
-          end
-      
-          $logger.info("Reconnecting after 24-hour interval")
-          create_websocket_client(symbols, intervals, all_records, websocket_clients)
+          reconnection(symbols, intervals, all_records, websocket_clients)
+  
         end
       end
 
@@ -103,7 +118,7 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[0..67]
+        symbols = ["btcusdt", "ethusdt", "solusdt"]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
