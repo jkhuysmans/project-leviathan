@@ -148,12 +148,12 @@ namespace :klines_websocket do
 
         previous_count = 0
         loop do
-          sleep 20
+          sleep 5
           current_count = all_records.count
           p all_records.count
 
           if current_count == previous_count
-            $logger.info("No new message in the last 20 seconds.")  
+            $logger.info("No new message in the last 5 seconds.")  
             reconnection(symbols, intervals, all_records, websocket_clients)
           elsif
             all_records.count > 10000
