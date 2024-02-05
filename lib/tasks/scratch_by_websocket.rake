@@ -114,6 +114,7 @@ namespace :klines_websocket do
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
         def insert_data(all_records)
+          puts "Inserting data..."
           $logger.info("Start inserting data...")
           start = Time.now
           file_path = Rails.root.join('data.csv').to_s
@@ -160,6 +161,7 @@ namespace :klines_websocket do
 
         loop do
           sleep 1
+          p all_records.count
           if all_records.count > 10000
             insert_data(all_records)
           end
