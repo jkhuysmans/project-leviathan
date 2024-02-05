@@ -95,7 +95,7 @@ namespace :klines_websocket do
         reconnection_thread = Thread.new do
              
           sleep_time = (24 * 60 * 60) - 580 
-          sleep(20)
+          sleep(sleep_time)
       
           reconnection(symbols, intervals, all_records, websocket_clients)
   
@@ -110,7 +110,7 @@ namespace :klines_websocket do
         websocket_clients.each do |ws_client|
           ws_client.close if ws_client.open?
         end
-        
+
         websocket_clients.clear
     
         $logger.info("Reconnecting...")
