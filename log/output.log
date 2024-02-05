@@ -1,0 +1,78 @@
+I, [2024-02-05T02:12:33.162716 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:12:34.208260 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:12:34.466381 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:12:54.974786 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:12:54.984817 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:12:54.986233 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:12:56.002311 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:12:56.289008 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:13:16.868610 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:13:16.869070 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:13:16.869876 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:13:17.913479 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:13:18.174012 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:13:38.678951 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:13:38.679279 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:13:38.680088 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:13:39.697195 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:13:39.937718 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:14:00.465014 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:14:00.465335 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:14:00.465514 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:14:01.472202 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:14:01.754755 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:14:22.339096 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:14:22.339276 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:14:22.339487 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:14:23.350417 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:14:23.596207 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:14:44.214345 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:14:44.215168 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:14:44.215285 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:14:45.226807 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:14:45.529494 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:15:05.999495 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:15:06.014048 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:15:06.014320 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:15:07.062515 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:15:07.333530 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:15:27.813605 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:15:27.813898 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:15:27.814090 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:15:28.877497 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:15:29.215108 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:15:49.754934 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:15:49.765748 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:15:49.766300 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:15:50.784556 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:15:51.089078 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:16:11.575725 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:16:11.576151 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:16:11.576365 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:16:12.591529 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:16:12.834217 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:16:33.466088 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:16:33.466324 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:16:33.466951 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:16:34.499251 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:16:34.851431 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:16:55.265055 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:16:55.265872 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:16:55.266589 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:16:56.282781 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:16:56.615611 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:17:17.048137 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:17:17.048427 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:17:17.048614 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:17:18.134653 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:17:18.449966 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:17:38.879303 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:17:38.879601 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:17:38.880167 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:17:39.907935 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:17:40.214102 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T02:18:00.771179 #10611]  INFO -- : Closed connection
+I, [2024-02-05T02:18:00.771312 #10611]  INFO -- : Reconnecting...
+I, [2024-02-05T02:18:00.771384 #10611]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T02:18:01.768314 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T02:18:02.071096 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}

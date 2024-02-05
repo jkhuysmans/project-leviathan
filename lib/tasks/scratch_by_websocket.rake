@@ -7,14 +7,6 @@ namespace :klines_websocket do
 
     all_records = []
 
-      def reconnection(symbols, intervals, all_records, websocket_clients)
-        websocket_clients.each do |ws_client|
-          ws_client.close if ws_client.open?
-        end
-    
-        $logger.info("Reconnecting...")
-        create_websocket_client(symbols, intervals, all_records, websocket_clients)
-      end
 
       def create_websocket_client(symbols, intervals, all_records, websocket_clients)
         streams = symbols.product(intervals).map { |symbol, interval| "#{symbol}@kline_#{interval}" }
@@ -33,6 +25,7 @@ namespace :klines_websocket do
             reset_timer = -> { last_message_time = Time.now }
         
           WebSocket::Client::Simple.connect base_url do |ws|
+            $active = true
             websocket_clients << ws
             
             ws.on :message do |msg|
@@ -83,8 +76,9 @@ namespace :klines_websocket do
 
             Thread.new do
               loop do
-                if Time.now - last_message_time > 10
-                  $logger.info("No new message in the last 10 seconds.")
+                break unless $active
+                if Time.now - last_message_time > 30
+                  $logger.info("No new message in the last 30 seconds.")
                   
                   reconnection(symbols, intervals, all_records, websocket_clients)
                   reset_timer.call
@@ -101,11 +95,26 @@ namespace :klines_websocket do
         reconnection_thread = Thread.new do
              
           sleep_time = (24 * 60 * 60) - 580 
-          sleep(sleep_time)
+          sleep(20)
       
           reconnection(symbols, intervals, all_records, websocket_clients)
   
         end
+      end
+
+      def reconnection(symbols, intervals, all_records, websocket_clients)
+        $active = false
+
+        sleep(1)
+
+        websocket_clients.each do |ws_client|
+          ws_client.close if ws_client.open?
+        end
+        
+        websocket_clients.clear
+    
+        $logger.info("Reconnecting...")
+        create_websocket_client(symbols, intervals, all_records, websocket_clients)
       end
 
         def get_all_symbols
