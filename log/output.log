@@ -76,3 +76,6 @@ I, [2024-02-05T02:18:00.771312 #10611]  INFO -- : Reconnecting...
 I, [2024-02-05T02:18:00.771384 #10611]  INFO -- : Number of streams being listened to: 45
 I, [2024-02-05T02:18:01.768314 #10611]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
 I, [2024-02-05T02:18:02.071096 #10611]  INFO -- : Subscription message received: {"result":null,"id":1}
+I, [2024-02-05T07:06:53.845922 #13219]  INFO -- : Number of streams being listened to: 45
+I, [2024-02-05T07:06:54.905457 #13219]  INFO -- : Subscribed to wss://stream.binance.com:9443/ws
+I, [2024-02-05T07:06:55.197619 #13219]  INFO -- : Subscription message received: {"result":null,"id":1}

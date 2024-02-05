@@ -113,6 +113,7 @@ namespace :klines_websocket do
 
         websocket_clients.clear
     
+        puts "Reconnecting"
         $logger.info("Reconnecting...")
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
       end
@@ -164,7 +165,7 @@ namespace :klines_websocket do
         loop do
           sleep 1
           p all_records.count
-          if all_records.count > 10000
+          if all_records.count > 200
             puts "inserting data at #{Time.now}"
             insert_data(all_records)
           end
