@@ -77,8 +77,8 @@ namespace :klines_websocket do
             Thread.new do
               loop do
                 break unless $active
-                if Time.now - last_message_time > 30
-                  $logger.info("No new message in the last 30 seconds.")
+                if Time.now - last_message_time > 50
+                  $logger.info("No new message in the last 50 seconds.")
                   
                   reconnection(symbols, intervals, all_records, websocket_clients)
                   reset_timer.call
@@ -113,7 +113,6 @@ namespace :klines_websocket do
 
         websocket_clients.clear
     
-        puts "Reconnecting"
         $logger.info("Reconnecting...")
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
       end
@@ -166,7 +165,7 @@ namespace :klines_websocket do
           sleep 1
           p all_records.count
           if all_records.count > 10000
-            puts "inserting data at #{Time.now}"
+            puts "Inserting data..."
             insert_data(all_records)
           end
         end
