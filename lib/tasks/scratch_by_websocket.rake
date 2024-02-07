@@ -25,11 +25,13 @@ namespace :klines_websocket do
             reset_timer = -> { last_message_time = Time.now }
         
           WebSocket::Client::Simple.connect base_url do |ws|
+            $active = true
             websocket_clients << ws
             
             ws.on :message do |msg|
 
               reset_timer.call
+              # $logger.info(msg.data)
 
               if msg.type == :ping
                 ws.send(msg.data, type: :pong)
@@ -72,6 +74,19 @@ namespace :klines_websocket do
               $logger.info("Closed connection")
             end
 
+            Thread.new do
+              loop do
+                break unless $active
+                if Time.now - last_message_time > 30
+                  $logger.info("No new message in the last 30 seconds.")
+                  
+                  reconnection(symbols, intervals, all_records, websocket_clients)
+                  reset_timer.call
+                end
+                sleep 1
+              end
+            end
+
           end
         end
         end
@@ -88,6 +103,8 @@ namespace :klines_websocket do
       end
 
       def reconnection(symbols, intervals, all_records, websocket_clients)
+        $active = false
+
         sleep(1)
 
         websocket_clients.each do |ws_client|
@@ -96,6 +113,8 @@ namespace :klines_websocket do
 
         websocket_clients.clear
     
+        puts "Reconnecting"
+        $logger.info("Reconnecting...")
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
       end
 
@@ -114,7 +133,6 @@ namespace :klines_websocket do
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
         def insert_data(all_records)
-          puts "Inserting data..."
           $logger.info("Start inserting data...")
           start = Time.now
           file_path = Rails.root.join('data.csv').to_s
@@ -127,8 +145,6 @@ namespace :klines_websocket do
               content_json = content.to_json
               csv << [symbol, interval, content_json, Time.now.utc, Time.now.utc]
             end
-
-            $logger.info("Data inserted")
           end
         
           copy_command = "psql -d leviathan_production -c \"\\COPY import_klines(symbol, interval, content, created_at, updated_at) FROM STDIN WITH CSV HEADER\""
@@ -146,20 +162,12 @@ namespace :klines_websocket do
           $logger.info("Took #{Time.now - start}")
         end
 
-        previous_count = 0
         loop do
-          sleep 5
-          current_count = all_records.count
+          sleep 1
           p all_records.count
-
-          if current_count == previous_count
-            $logger.info("No new message in the last 5 seconds.")  
-            reconnection(symbols, intervals, all_records, websocket_clients)
-          elsif
-            all_records.count > 10000
+          if all_records.count > 10000
+            puts "inserting data at #{Time.now}"
             insert_data(all_records)
-          else
-            previous_count = current_count
           end
         end
 
