@@ -2,7 +2,7 @@ namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
-    $logger = Logger.new(File.join(Rails.root, 'log', 'output.log'))
+    $logger = Logger.new(File.join(Rails.root, 'log', 'output2.log'))
     websocket_clients = []
 
     all_records = []
@@ -111,7 +111,7 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols
+        symbols = symbols[13..1000]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
