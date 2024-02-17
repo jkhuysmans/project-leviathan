@@ -23,7 +23,7 @@ namespace :klines_refresh do
 
   raw_records = Queue.new
 
-  date_time = DateTime.now.utc
+  date_time = DateTime.now.utc - 1.days
 
   workers = []
   worker_count.times do

@@ -21,10 +21,6 @@
 
 env :PATH, ENV['PATH']
 
-every 5.minute do
-  rake 'oi_fetcher:refresh_oi', environment: 'production'
-end
-
 Time.zone = 'UTC'
 
 every 1.day, at: '00:00:10' do

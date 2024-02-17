@@ -80,7 +80,7 @@ namespace :websocket do
 
         reconnection_thread = Thread.new do
              
-          sleep_time = (24 * 60 * 60) - 580 
+          sleep_time = (24 * 60 * 60) - 1
           sleep(sleep_time)
       
           reconnection(symbols, intervals, all_records, websocket_clients)
@@ -150,7 +150,7 @@ namespace :websocket do
 
         previous_count = 0
 
-        17277.times do
+        17276.times do
           sleep 5
           current_count = all_records.count
           p all_records.count
