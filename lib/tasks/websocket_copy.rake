@@ -150,7 +150,7 @@ namespace :websocket do
 
         previous_count = 0
 
-        17270.times do
+        17277.times do
           sleep 5
           current_count = all_records.count
           p all_records.count
