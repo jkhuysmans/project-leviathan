@@ -24,6 +24,7 @@ env :PATH, ENV['PATH']
 Time.zone = 'UTC'
 
 every 1.day, at: '00:00:10' do
-  rake 'websocket:scratch_by_minute', environment: 'production'
-  rake 'klines_refresh:scratch_by_minute', environment: 'production'
+  rake 'websocket:scratch_by_minute RAILS_ENV=production'
+  rake 'klines_websocket:scratch_by_minute RAILS_ENV=production'
+  rake 'klines_refresh:scratch_by_minute RAILS_ENV=production'
 end

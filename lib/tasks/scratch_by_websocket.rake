@@ -1,4 +1,4 @@
-namespace :websocket do
+namespace :klines_websocket do
   desc "TODO"
   task :scratch_by_minute, [:symbol, :month] => :environment do |t, args|
 
