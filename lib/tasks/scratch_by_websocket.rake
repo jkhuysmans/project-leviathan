@@ -111,7 +111,6 @@ namespace :klines_websocket do
 
         intervals = ["1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w", "1M"]
         symbols = get_all_symbols.map { |symbol| symbol.downcase }
-        symbols = symbols[156..500]
 
         create_websocket_client(symbols, intervals, all_records, websocket_clients)
 
@@ -150,7 +149,7 @@ namespace :klines_websocket do
 
         previous_count = 0
 
-        17276.times do
+        4318.times do
           sleep 5
           current_count = all_records.count
           p all_records.count
@@ -158,7 +157,7 @@ namespace :klines_websocket do
           if current_count == previous_count && $active
             $logger.info("No new message in the last 5 seconds.")  
             reconnection(symbols, intervals, all_records, websocket_clients)
-          elsif all_records.count > 10000 && $active
+          elsif all_records.count > 15000 && $active
             insert_data(all_records)
           else
             previous_count = current_count
